@@ -9,45 +9,19 @@ import sys
 from collections import OrderedDict
 
 queueType = "longlunch"
-#option = 2
-#label = "v7"
-#option = 10
-#label = "v9"
-#option = 0
-#label = "option0"
-option = 5
-label = "option5"
-#option = 1
-#label = "v1"
+option = 1
+label = "option1"
 
-analysis = "HHTo4BNtupler"
-outputfile = "HHTo4BNtuple" + "_" + label
+analysis = "HHToBBWWNtupler"
+outputfile = "HHToBBWWNtuple" + "_" + label
 
-#analysis = "JetHTTriggerNtupler"
-#outputfile = "JetHTTriggerNtuple" + "_" + label
+cmsswReleaseVersion = "CMSSW_10_6_20"
 
-#analysis = "MakeMCPileupDistribution"
-#outputfile = "MCPileupDistribution" + "_" + label
-
-cmsswReleaseVersion = "CMSSW_10_6_5"
-
-
-
-outputDirectoryBase = "/store/user/lpcbacon/sixie/analyzer/"+analysis+"/"+label+"/"
-#filesPerJob = 2
+outputDirectoryBase = "/store/user/lpcbacon/cmantill/analyzer/"+analysis+"/"+label+"/"
 
 datasetList = OrderedDict()
 
 #2016 hqu ntuples
-
-datasetList['nano/v1/2016/JetHT_2016B-ver2.list'] = [1, 1, "2016", ""]
-datasetList['nano/v1/2016/JetHT_2016C.list'] = [1, 1, "2016", ""]
-datasetList['nano/v1/2016/JetHT_2016D.list'] = [1, 1, "2016", ""]
-datasetList['nano/v1/2016/JetHT_2016E.list'] = [1, 1, "2016", ""]
-datasetList['nano/v1/2016/JetHT_2016F.list'] = [1, 1, "2016", ""]
-datasetList['nano/v1/2016/JetHT_2016G.list'] = [1, 1, "2016", ""]
-datasetList['nano/v1/2016/JetHT_2016H.list'] = [1, 1, "2016", ""]
-datasetList['nano/v1/2016/GluGluHToBB_M-125_13TeV_powheg_MINLO_NNLOPS_pythia8.list'] = [0, 2, "2016", "GluGluHToBB_M-125_13TeV_powheg_MINLO_NNLOPS_pythia8"]
 datasetList['nano/v1/2016/GluGluToHHTo4B_node_SM_13TeV-madgraph.list'] = [0, 2, "2016", "GluGluToHHTo4B_node_SM_13TeV-madgraph"]
 datasetList['nano/v1/2016/GluGluToHHTo4B_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8.list'] = [0, 2, "2016", "GluGluToHHTo4B_node_cHHH0_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8"]
 datasetList['nano/v1/2016/GluGluToHHTo4B_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8.list'] = [0, 2, "2016", "GluGluToHHTo4B_node_cHHH1_TuneCUETP8M1_PSWeights_13TeV-powheg-pythia8"]
@@ -70,76 +44,8 @@ datasetList['nano/v1/2016/QCD_HT700to1000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8
 datasetList['nano/v1/2016/TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8.list'] = [0, 2, "2016", "TTTo2L2Nu_TuneCP5_PSweights_13TeV-powheg-pythia8"]
 datasetList['nano/v1/2016/TTToHadronic_TuneCP5_PSweights_13TeV-powheg-pythia8.list'] = [0, 2, "2016", "TTToHadronic_TuneCP5_PSweights_13TeV-powheg-pythia8"]
 datasetList['nano/v1/2016/TTToSemiLeptonic_TuneCP5_PSweights_13TeV-powheg-pythia8.list'] = [0, 2, "2016", "TTToSemiLeptonic_TuneCP5_PSweights_13TeV-powheg-pythia8"]
-datasetList['nano/v1/2016/VBFHHTo4B_CV_1_C2V_1_C3_1_13TeV-madgraph.list'] = [0, 2, "2016", "VBFHHTo4B_CV_1_C2V_1_C3_1_13TeV-madgraph"]
-datasetList['nano/v1/2016/VBFHHTo4B_CV_0_5_C2V_1_C3_1_13TeV-madgraph.list'] = [0, 2, "2016", "VBFHHTo4B_CV_0_5_C2V_1_C3_1_13TeV-madgraph"]
-datasetList['nano/v1/2016/VBFHHTo4B_CV_1_5_C2V_1_C3_1_13TeV-madgraph.list'] = [0, 2, "2016", "VBFHHTo4B_CV_1_5_C2V_1_C3_1_13TeV-madgraph"]
-datasetList['nano/v1/2016/VBFHHTo4B_CV_1_C2V_1_C3_0_13TeV-madgraph.list'] = [0, 2, "2016", "VBFHHTo4B_CV_1_C2V_1_C3_0_13TeV-madgraph"]
-datasetList['nano/v1/2016/VBFHHTo4B_CV_1_C2V_1_C3_2_13TeV-madgraph.list'] = [0, 2, "2016", "VBFHHTo4B_CV_1_C2V_1_C3_2_13TeV-madgraph"]
-datasetList['nano/v1/2016/VBFHHTo4B_CV_1_C2V_2_C3_1_13TeV-madgraph.list'] = [0, 2, "2016", "VBFHHTo4B_CV_1_C2V_2_C3_1_13TeV-madgraph"]
-datasetList['nano/v1/2016/VBFHToBB_M-125_13TeV_powheg_pythia8_weightfix-ext1.list'] = [0, 2, "2016", "VBFHToBB_M-125_13TeV_powheg_pythia8_weightfix-combined"]
-datasetList['nano/v1/2016/VBFHToBB_M-125_13TeV_powheg_pythia8_weightfix.list'] = [0, 2, "2016", "VBFHToBB_M-125_13TeV_powheg_pythia8_weightfix-combined"]
-datasetList['nano/v1/2016/WplusH_HToBB_WToQQ_M125_13TeV_powheg_pythia8.list'] = [0, 2, "2016", "WplusH_HToBB_WToQQ_M125_13TeV_powheg_pythia8"]
-datasetList['nano/v1/2016/WminusH_HToBB_WToQQ_M125_13TeV_powheg_pythia8.list'] = [0, 2, "2016", "WminusH_HToBB_WToQQ_M125_13TeV_powheg_pythia8"]
-datasetList['nano/v1/2016/ZH_HToBB_ZToQQ_M125_13TeV_powheg_pythia8.list'] = [0, 2, "2016", "ZH_HToBB_ZToQQ_M125_13TeV_powheg_pythia8"]
-datasetList['nano/v1/2016/ttHTobb_M125_13TeV_powheg_pythia8.list'] = [0, 2, "2016", "ttHTobb_M125_13TeV_powheg_pythia8"]
-datasetList['nano/v1/2016/ggZH_HToBB_ZToQQ_M125_13TeV_powheg_pythia8.list'] = [0, 2, "2016", "ggZH_HToBB_ZToQQ_M125_13TeV_powheg_pythia8"]
-datasetList['nano/v1/2016/ggZH_HToBB_ZToBB_M125_TuneCP5_13TeV_powheg_pythia8.list'] = [0, 2, "2016", "ggZH_HToBB_ZToBB_M125_TuneCP5_13TeV_powheg_pythia8"]
-datasetList['nano/v1/2016/ZZTo4Q_13TeV_amcatnloFXFX_madspin_pythia8.list'] = [0, 2, "2016", "ZZTo4Q_13TeV_amcatnloFXFX_madspin_pythia8"]
-datasetList['nano/v1/2016/WW_TuneCUETP8M1_13TeV-pythia8.list'] = [0, 2, "2016", "WW_TuneCUETP8M1_13TeV-pythia8-combined"]
-datasetList['nano/v1/2016/WW_TuneCUETP8M1_13TeV-pythia8-ext1.list'] = [0, 2, "2016", "WW_TuneCUETP8M1_13TeV-pythia8-combined"]
-datasetList['nano/v1/2016/WWTo4Q_13TeV-powheg.list'] = [0, 2, "2016", "WWTo4Q_13TeV-powheg"]
-datasetList['nano/v1/2016/WZ_TuneCUETP8M1_13TeV-pythia8.list'] = [0, 2, "2016", "WZ_TuneCUETP8M1_13TeV-pythia8-combined"]
-datasetList['nano/v1/2016/WZ_TuneCUETP8M1_13TeV-pythia8-ext1.list'] = [0, 2, "2016", "WZ_TuneCUETP8M1_13TeV-pythia8-combined"]
-datasetList['nano/v1/2016/ZZ_TuneCUETP8M1_13TeV-pythia8.list'] = [0, 2, "2016", "ZZ_TuneCUETP8M1_13TeV-pythia8-combined"]
-datasetList['nano/v1/2016/ZZ_TuneCUETP8M1_13TeV-pythia8-ext1.list'] = [0, 2, "2016", "ZZ_TuneCUETP8M1_13TeV-pythia8-combined"]
-datasetList['nano/v1/2016/WJetsToQQ_HT600to800_qc19_3j_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.list'] = [0, 2, "2016", "WJetsToQQ_HT600to800_qc19_3j_TuneCUETP8M1_13TeV-madgraphMLM-pythia8"]
-datasetList['nano/v1/2016/WJetsToQQ_HT-800toInf_qc19_3j_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.list'] = [0, 2, "2016", "WJetsToQQ_HT-800toInf_qc19_3j_TuneCUETP8M1_13TeV-madgraphMLM-pythia8"]
-datasetList['nano/v1/2016/WJetsToQQ_HT400to600_qc19_3j_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.list'] = [0, 2, "2016", "WJetsToQQ_HT400to600_qc19_3j_TuneCUETP8M1_13TeV-madgraphMLM-pythia8"]
-datasetList['nano/v1/2016/ZJetsToQQ_HT600to800_qc19_4j_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.list'] = [0, 2, "2016", "ZJetsToQQ_HT600to800_qc19_4j_TuneCUETP8M1_13TeV-madgraphMLM-pythia8"]
-datasetList['nano/v1/2016/ZJetsToQQ_HT-800toInf_qc19_4j_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.list'] = [0, 2, "2016", "ZJetsToQQ_HT-800toInf_qc19_4j_TuneCUETP8M1_13TeV-madgraphMLM-pythia8"]
-datasetList['nano/v1/2016/ZJetsToQQ_HT400to600_qc19_4j_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.list'] = [0, 2, "2016", "ZJetsToQQ_HT400to600_qc19_4j_TuneCUETP8M1_13TeV-madgraphMLM-pythia8"]
 datasetList['nano/v1/2016/ST_tW_antitop_5f_inclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8.list'] = [0, 2, "2016", "ST_tW_antitop_5f_inclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8"]
 datasetList['nano/v1/2016/ST_tW_top_5f_inclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8.list'] = [0, 2, "2016", "ST_tW_top_5f_inclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8"]
-
-#datasetList['nano/v1/2016/SingleMuon_2016B-ver2.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SingleMuon_2016C.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SingleMuon_2016D.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SingleMuon_2016E.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SingleMuon_2016F.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SingleMuon_2016G.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SingleMuon_2016H.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SingleElectron_2016B-ver2.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SingleElectron_2016C.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SingleElectron_2016D.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SingleElectron_2016E.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SingleElectron_2016F.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SingleElectron_2016G.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SingleElectron_2016H.list'] = [1, 1, "2016", ""]
-
-# datasetList['nano/v1/2016/WJetsToLNu_Pt-100To250_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-ext1.list'] = [0, 2, "2016", "WJetsToLNu_Pt-100To250_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-combined"]
-# datasetList['nano/v1/2016/WJetsToLNu_Pt-100To250_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-ext4.list'] = [0, 2, "2016", "WJetsToLNu_Pt-100To250_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-combined"]
-# datasetList['nano/v1/2016/WJetsToLNu_Pt-100To250_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8.list'] = [0, 2, "2016", "WJetsToLNu_Pt-100To250_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-combined"]
-# datasetList['nano/v1/2016/WJetsToLNu_Pt-250To400_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-ext1.list'] = [0, 2, "2016", "WJetsToLNu_Pt-250To400_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-combined"]
-# datasetList['nano/v1/2016/WJetsToLNu_Pt-250To400_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-ext4.list'] = [0, 2, "2016", "WJetsToLNu_Pt-250To400_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-combined"]
-# datasetList['nano/v1/2016/WJetsToLNu_Pt-250To400_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8.list'] = [0, 2, "2016", "WJetsToLNu_Pt-250To400_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-combined"]
-# datasetList['nano/v1/2016/WJetsToLNu_Pt-400To600_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-ext1.list'] = [0, 2, "2016", "WJetsToLNu_Pt-400To600_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-combined"]
-# datasetList['nano/v1/2016/WJetsToLNu_Pt-400To600_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8.list'] = [0, 2, "2016", "WJetsToLNu_Pt-400To600_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-combined"]
-# datasetList['nano/v1/2016/WJetsToLNu_Pt-600ToInf_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-ext1.list'] = [0, 2, "2016", "WJetsToLNu_Pt-600ToInf_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-combined"]
-# datasetList['nano/v1/2016/WJetsToLNu_Pt-600ToInf_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8.list'] = [0, 2, "2016", "WJetsToLNu_Pt-600ToInf_TuneCUETP8M1_13TeV-amcatnloFXFX-pythia8-combined"]
-
-#datasetList['nano/v1/2016/SinglePhoton_2016B.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SinglePhoton_2016C.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SinglePhoton_2016D.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SinglePhoton_2016E.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SinglePhoton_2016F.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SinglePhoton_2016G.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/SinglePhoton_2016H.list'] = [1, 1, "2016", ""]
-#datasetList['nano/v1/2016/GJets_DR-0p4_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.list'] = [0, 2, "2016", "GJets_DR-0p4_HT-100To200_TuneCUETP8M1_13TeV-madgraphMLM-pythia8"]
-#datasetList['nano/v1/2016/GJets_DR-0p4_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.list'] = [0, 2, "2016", "GJets_DR-0p4_HT-200To400_TuneCUETP8M1_13TeV-madgraphMLM-pythia8"]
-#datasetList['nano/v1/2016/GJets_DR-0p4_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.list'] = [0, 2, "2016", "GJets_DR-0p4_HT-400To600_TuneCUETP8M1_13TeV-madgraphMLM-pythia8"]
-#datasetList['nano/v1/2016/GJets_DR-0p4_HT-40To100_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.list'] = [0, 2, "2016", "GJets_DR-0p4_HT-40To100_TuneCUETP8M1_13TeV-madgraphMLM-pythia8"]
-#datasetList['nano/v1/2016/GJets_DR-0p4_HT-600ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8.list'] = [0, 2, "2016", "GJets_DR-0p4_HT-600ToInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8"]
-
 
 #2017  hqu ntuples
 datasetList['nano/v1/2017/GluGluHToBB_M-125_13TeV_powheg_MINLO_NNLOPS_pythia8.list'] = [0, 2, "2017", "GluGluHToBB_M-125_13TeV_powheg_MINLO_NNLOPS_pythia8"]
@@ -281,25 +187,6 @@ datasetList['nano/v1/2018/ZH_ZToAll_HToZG_ZToLL_TuneCP5_M125_13TeV-powheg-pythia
 datasetList['nano/v1/2018/ttHToZG_M125_13TeV_powheg_pythia8.list'] = [0, 2, "2018", "ttHToZG_M125_13TeV_powheg_pythia8"]
 datasetList['nano/v1/2018/ttHToZG_ZToLL_M125_13TeV_powheg_pythia8.list'] = [0, 2, "2018", "ttHToZG_ZToLL_M125_13TeV_powheg_pythia8"]
 datasetList['nano/v1/2018/GluGluHToZG_M-125_TuneCP5_13TeV-powheg-pythia8.list'] = [0, 2, "2018", "GluGluHToZG_M-125_TuneCP5_13TeV-powheg-pythia8"]
-
-#datasetList['nano/v1/2018/SingleMuon_2018A.list'] = [1, 1, "2018", ""]
-#datasetList['nano/v1/2018/SingleMuon_2018B.list'] = [1, 1, "2018", ""]
-#datasetList['nano/v1/2018/SingleMuon_2018C.list'] = [1, 1, "2018", ""]
-#datasetList['nano/v1/2018/SingleMuon_2018D.list'] = [1, 1, "2018", ""]
-# datasetList['nano/v1/2018/EGamma_2018A.list'] = [1, 1, "2018", ""]
-# datasetList['nano/v1/2018/EGamma_2018B.list'] = [1, 1, "2018", ""]
-# datasetList['nano/v1/2018/EGamma_2018C.list'] = [1, 1, "2018", ""]
-# datasetList['nano/v1/2018/EGamma_2018D.list'] = [1, 1, "2018", ""]
-# datasetList['nano/v1/2018/WJetsToLNu_Pt-100To250_TuneCP5_13TeV-amcatnloFXFX-pythia8.list'] = [0, 2, "2018", "WJetsToLNu_Pt-100To250_TuneCP5_13TeV-amcatnloFXFX-pythia8"]
-# datasetList['nano/v1/2018/WJetsToLNu_Pt-250To400_TuneCP5_13TeV-amcatnloFXFX-pythia8.list'] = [0, 2, "2018", "WJetsToLNu_Pt-250To400_TuneCP5_13TeV-amcatnloFXFX-pythia8"]
-# datasetList['nano/v1/2018/WJetsToLNu_Pt-400To600_TuneCP5_13TeV-amcatnloFXFX-pythia8.list'] = [0, 2, "2018", "WJetsToLNu_Pt-400To600_TuneCP5_13TeV-amcatnloFXFX-pythia8"]
-# datasetList['nano/v1/2018/WJetsToLNu_Pt-50To100_TuneCP5_13TeV-amcatnloFXFX-pythia8.list'] = [0, 2, "2018", "WJetsToLNu_Pt-50To100_TuneCP5_13TeV-amcatnloFXFX-pythia8"]
-# datasetList['nano/v1/2018/WJetsToLNu_Pt-600ToInf_TuneCP5_13TeV-amcatnloFXFX-pythia8.list'] = [0, 2, "2018", "WJetsToLNu_Pt-600ToInf_TuneCP5_13TeV-amcatnloFXFX-pythia8"]
-#datasetList['nano/v1/2018/GJets_DR-0p4_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8.list'] = [0, 2, "2018", "GJets_DR-0p4_HT-100To200_TuneCP5_13TeV-madgraphMLM-pythia8"]
-#datasetList['nano/v1/2018/GJets_DR-0p4_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8.list'] = [0, 2, "2018", "GJets_DR-0p4_HT-200To400_TuneCP5_13TeV-madgraphMLM-pythia8"]
-#datasetList['nano/v1/2018/GJets_DR-0p4_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8.list'] = [0, 2, "2018", "GJets_DR-0p4_HT-400To600_TuneCP5_13TeV-madgraphMLM-pythia8"]
-#datasetList['nano/v1/2018/GJets_DR-0p4_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8.list'] = [0, 2, "2018", "GJets_DR-0p4_HT-600ToInf_TuneCP5_13TeV-madgraphMLM-pythia8"]
-
 
 CMSSW_BASE_DIR = os.getenv('CMSSW_BASE')
 Analyzer_DIR = CMSSW_BASE_DIR+"/src/HHBoostedAnalyzer/"
