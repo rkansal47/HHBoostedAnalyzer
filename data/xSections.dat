@@ -623,3 +623,5 @@ WJetsToQQ_HT-800toInf       51.97
 ZJetsToQQ_HT400to600        44.55
 ZJetsToQQ_HT600to800        10.62
 ZJetsToQQ_HT-800toInf       6.12
+HHToBBVVToBBQQQQ_node_SM    1
+HHToVVVV_node_SM_Pt300      1
