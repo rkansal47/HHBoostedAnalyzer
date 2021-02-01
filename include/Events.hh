@@ -145,6 +145,22 @@ public :
    float* FatJet_btagDDCvL = new float[NFATJET];   //[nFatJet]
    float* FatJet_btagHbb = new float[NFATJET];   //[nFatJet]
    float* FatJet_dRLep = new float[NFATJET];   //[nFatJet]
+   float* FatJet_deepTag_H = new float[NFATJET];
+   float* FatJet_deepTag_QCD = new float[NFATJET];
+   float* FatJet_deepTag_QCDothers = new float[NFATJET];
+   float* FatJet_deepTag_TvsQCD = new float[NFATJET];
+   float* FatJet_deepTag_WvsQCD = new float[NFATJET];
+   float* FatJet_deepTag_ZvsQCD = new float[NFATJET];
+   float* FatJet_deepTagMD_H4qvsQCD = new float[NFATJET];
+   float* FatJet_deepTagMD_HbbvsQCD = new float[NFATJET];
+   float* FatJet_deepTagMD_TvsQCD = new float[NFATJET];
+   float* FatJet_deepTagMD_WvsQCD = new float[NFATJET];
+   float* FatJet_deepTagMD_ZHbbvsQCD = new float[NFATJET];
+   float* FatJet_deepTagMD_ZHccvsQCD = new float[NFATJET];
+   float* FatJet_deepTagMD_ZbbvsQCD = new float[NFATJET];
+   float* FatJet_deepTagMD_ZvsQCD = new float[NFATJET];
+   float* FatJet_deepTagMD_bbvsLight = new float[NFATJET];
+   float* FatJet_deepTagMD_ccvsLight = new float[NFATJET];
    float* FatJet_deepTagHbb = new float[NFATJET];   //[nFatJet]
    float* FatJet_deepTagHcc = new float[NFATJET];   //[nFatJet]
    float* FatJet_deepTagHqqqq = new float[NFATJET];   //[nFatJet]
@@ -1701,6 +1717,22 @@ public :
    TBranch        *b_FatJet_btagDDCvL;   //!
    TBranch        *b_FatJet_btagHbb;   //!
    TBranch        *b_FatJet_dRLep;   //!
+   TBranch        *b_FatJet_deepTag_H;
+   TBranch        *b_FatJet_deepTag_QCD;
+   TBranch        *b_FatJet_deepTag_QCDothers;
+   TBranch        *b_FatJet_deepTag_TvsQCD;
+   TBranch        *b_FatJet_deepTag_WvsQCD;
+   TBranch        *b_FatJet_deepTag_ZvsQCD;
+   TBranch        *b_FatJet_deepTagMD_H4qvsQCD;
+   TBranch        *b_FatJet_deepTagMD_HbbvsQCD;
+   TBranch        *b_FatJet_deepTagMD_TvsQCD; 
+   TBranch        *b_FatJet_deepTagMD_WvsQCD;
+   TBranch        *b_FatJet_deepTagMD_ZHbbvsQCD;
+   TBranch        *b_FatJet_deepTagMD_ZHccvsQCD;
+   TBranch        *b_FatJet_deepTagMD_ZbbvsQCD;
+   TBranch        *b_FatJet_deepTagMD_ZvsQCD;
+   TBranch        *b_FatJet_deepTagMD_bbvsLight;
+   TBranch        *b_FatJet_deepTagMD_ccvsLight;
    TBranch        *b_FatJet_deepTagHbb;   //!
    TBranch        *b_FatJet_deepTagHcc;   //!
    TBranch        *b_FatJet_deepTagHqqqq;   //!
@@ -3369,6 +3401,21 @@ void Events::Init(TTree *tree)
    fChain->SetBranchAddress("FatJet_btagDDCvL", FatJet_btagDDCvL, &b_FatJet_btagDDCvL);
    fChain->SetBranchAddress("FatJet_btagHbb", FatJet_btagHbb, &b_FatJet_btagHbb);
    fChain->SetBranchAddress("FatJet_dRLep", FatJet_dRLep, &b_FatJet_dRLep);
+   fChain->SetBranchAddress("FatJet_deepTag_H", FatJet_deepTag_H, &b_FatJet_deepTag_H);
+   fChain->SetBranchAddress("FatJet_deepTag_QCD", FatJet_deepTag_QCD, &b_FatJet_deepTag_QCD);
+   fChain->SetBranchAddress("FatJet_deepTag_QCDothers", FatJet_deepTag_QCDothers, &b_FatJet_deepTag_QCDothers);
+   fChain->SetBranchAddress("FatJet_deepTag_TvsQCD", FatJet_deepTag_TvsQCD, &b_FatJet_deepTag_TvsQCD);
+   fChain->SetBranchAddress("FatJet_deepTag_WvsQCD", FatJet_deepTag_WvsQCD, &b_FatJet_deepTag_WvsQCD);
+   fChain->SetBranchAddress("FatJet_deepTag_ZvsQCD", FatJet_deepTag_ZvsQCD, &b_FatJet_deepTag_ZvsQCD);
+   fChain->SetBranchAddress("FatJet_deepTagMD_H4qvsQCD", FatJet_deepTagMD_H4qvsQCD, &b_FatJet_deepTagMD_H4qvsQCD);
+   fChain->SetBranchAddress("FatJet_deepTagMD_HbbvsQCD", FatJet_deepTagMD_HbbvsQCD, &b_FatJet_deepTagMD_HbbvsQCD);
+   fChain->SetBranchAddress("FatJet_deepTagMD_TvsQCD", FatJet_deepTagMD_TvsQCD, &b_FatJet_deepTagMD_TvsQCD);
+   fChain->SetBranchAddress("FatJet_deepTagMD_WvsQCD", FatJet_deepTagMD_WvsQCD, &b_FatJet_deepTagMD_WvsQCD);
+   fChain->SetBranchAddress("FatJet_deepTagMD_ZHbbvsQCD", FatJet_deepTagMD_ZHbbvsQCD, &b_FatJet_deepTagMD_ZHbbvsQCD);
+   fChain->SetBranchAddress("FatJet_deepTagMD_ZHccvsQCD", FatJet_deepTagMD_ZHccvsQCD, &b_FatJet_deepTagMD_ZHccvsQCD);
+   fChain->SetBranchAddress("FatJet_deepTagMD_ZvsQCD", FatJet_deepTagMD_ZvsQCD, &b_FatJet_deepTagMD_ZvsQCD);
+   fChain->SetBranchAddress("FatJet_deepTagMD_bbvsLight", FatJet_deepTagMD_bbvsLight, &b_FatJet_deepTagMD_bbvsLight);
+   fChain->SetBranchAddress("FatJet_deepTagMD_ccvsLight", FatJet_deepTagMD_ccvsLight, &b_FatJet_deepTagMD_ccvsLight);
    fChain->SetBranchAddress("FatJet_deepTagHbb", FatJet_deepTagHbb, &b_FatJet_deepTagHbb);
    fChain->SetBranchAddress("FatJet_deepTagHcc", FatJet_deepTagHcc, &b_FatJet_deepTagHcc);
    fChain->SetBranchAddress("FatJet_deepTagHqqqq", FatJet_deepTagHqqqq, &b_FatJet_deepTagHqqqq);
