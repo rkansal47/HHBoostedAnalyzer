@@ -50,6 +50,22 @@ void Events::DeleteHeapFatJets()
   delete[] FatJet_btagDDCvL;   //[nFatJet]
   delete[] FatJet_btagHbb;   //[nFatJet]
   delete[] FatJet_dRLep;   //[nFatJet]
+  delete[] FatJet_deepTag_H;
+  delete[] FatJet_deepTag_QCD;
+  delete[] FatJet_deepTag_QCDothers;
+  delete[] FatJet_deepTag_TvsQCD;
+  delete[] FatJet_deepTag_WvsQCD;
+  delete[] FatJet_deepTag_ZvsQCD;
+  delete[] FatJet_deepTagMD_H4qvsQCD;
+  delete[] FatJet_deepTagMD_HbbvsQCD;
+  delete[] FatJet_deepTagMD_TvsQCD;
+  delete[] FatJet_deepTagMD_WvsQCD;
+  delete[] FatJet_deepTagMD_ZHbbvsQCD;
+  delete[] FatJet_deepTagMD_ZHccvsQCD;
+  delete[] FatJet_deepTagMD_ZbbvsQCD;
+  delete[] FatJet_deepTagMD_ZvsQCD;
+  delete[] FatJet_deepTagMD_bbvsLight;
+  delete[] FatJet_deepTagMD_ccvsLight;
   delete[] FatJet_deepTagHbb;   //[nFatJet]
   delete[] FatJet_deepTagHcc;   //[nFatJet]
   delete[] FatJet_deepTagHqqqq;   //[nFatJet]
@@ -556,6 +572,22 @@ void Events::CreateOutputTree()
   tree_out->Branch("FatJet_deepTagZbb",      FatJet_deepTagZbb,     "FatJet_deepTagZbb[nFatJet]/F");      //
   tree_out->Branch("FatJet_deepTagZcc",      FatJet_deepTagZcc,     "FatJet_deepTagZcc[nFatJet]/F");      //
   tree_out->Branch("FatJet_deepTagZqq",      FatJet_deepTagZqq,     "FatJet_deepTagZqq[nFatJet]/F");      //
+  tree_out->Branch("FatJet_deepTag_H",       FatJet_deepTag_H,      "FatJet_deepTag_H[nFatJet]/F"); 
+  tree_out->Branch("FatJet_deepTag_QCD",     FatJet_deepTag_QCD,    "FatJet_deepTag_QCD[nFatJet]/F");
+  tree_out->Branch("FatJet_deepTag_QCDothers",     FatJet_deepTag_QCDothers,    "FatJet_deepTag_QCDothers[nFatJet]/F");
+  tree_out->Branch("FatJet_deepTag_TvsQCD",     FatJet_deepTag_TvsQCD,    "FatJet_deepTag_TvsQCD[nFatJet]/F");
+  tree_out->Branch("FatJet_deepTag_WvsQCD",     FatJet_deepTag_WvsQCD,    "FatJet_deepTag_WvsQCD[nFatJet]/F");
+  tree_out->Branch("FatJet_deepTag_ZvsQCD",     FatJet_deepTag_ZvsQCD,    "FatJet_deepTag_ZvsQCD[nFatJet]/F");
+  tree_out->Branch("FatJet_deepTagMD_H4qvsQCD", FatJet_deepTagMD_H4qvsQCD, "FatJet_deepTagMD_H4qvsQCD[nFatJet]/F");
+  tree_out->Branch("FatJet_deepTagMD_HbbvsQCD", FatJet_deepTagMD_HbbvsQCD, "FatJet_deepTagMD_HbbvsQCD[nFatJet]/F");
+  tree_out->Branch("FatJet_deepTagMD_TvsQCD",FatJet_deepTagMD_TvsQCD, "FatJet_deepTagMD_TvsQCD[nFatJet]/F");
+  tree_out->Branch("FatJet_deepTagMD_WvsQCD",FatJet_deepTagMD_WvsQCD, "FatJet_deepTagMD_WvsQCD[nFatJet]/F");
+  tree_out->Branch("FatJet_deepTagMD_ZHbbvsQCD",FatJet_deepTagMD_ZHbbvsQCD, "FatJet_deepTagMD_ZHbbvsQCD[nFatJet]/F");
+  tree_out->Branch("FatJet_deepTagMD_ZHccvsQCD",FatJet_deepTagMD_ZHccvsQCD, "FatJet_deepTagMD_ZHccvsQCD[nFatJet]/F");
+  tree_out->Branch("FatJet_deepTagMD_ZbbvsQCD",FatJet_deepTagMD_ZbbvsQCD, "FatJet_deepTagMD_ZbbvsQCD[nFatJet]/F");
+  tree_out->Branch("FatJet_deepTagMD_ZvsQCD",FatJet_deepTagMD_ZvsQCD, "FatJet_deepTagMD_ZvsQCD[nFatJet]/F");
+  tree_out->Branch("FatJet_deepTagMD_bbvsLight", FatJet_deepTagMD_bbvsLight, "FatJet_deepTagMD_bbvsLight[nFatJet]/F");
+  tree_out->Branch("FatJet_deepTagMD_ccvsLight", FatJet_deepTagMD_ccvsLight, "FatJet_deepTagMD_ccvsLight[nFatJet]/F");
   tree_out->Branch("FatJet_eta",      FatJet_eta,     "FatJet_eta[nFatJet]/F");      //
   tree_out->Branch("FatJet_lsf3",      FatJet_lsf3,     "FatJet_lsf3[nFatJet]/F");      //
   tree_out->Branch("FatJet_mass",      FatJet_mass,     "FatJet_mass[nFatJet]/F");      //
