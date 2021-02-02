@@ -23,7 +23,7 @@ voms-proxy-init --voms cms
 ```
 # to produce condor scripts
 python scripts/submit_analyzer_jobs_LPC.py
-# to submit
+# to submit - go into the folder created and do:
 for i in * ; do cd ${i}; condor_submit task.jdl; cd -; done
 ```
 
