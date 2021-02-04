@@ -86,6 +86,9 @@ void Events::DeleteHeapFatJets()
   delete[] FatJet_deepTagZbb;   //[nFatJet]
   delete[] FatJet_deepTagZcc;   //[nFatJet]
   delete[] FatJet_deepTagZqq;   //[nFatJet]
+  delete[] FatJet_particleNetMD_Xbb;
+  delete[] FatJet_particleNetMD_Xcc;
+  delete[] FatJet_particleNetMD_Xqq;
   delete[] FatJet_eta;   //[nFatJet]
   delete[] FatJet_lsf3;   //[nFatJet]
   delete[] FatJet_mass;   //[nFatJet]
@@ -588,6 +591,9 @@ void Events::CreateOutputTree()
   tree_out->Branch("FatJet_deepTagMD_ZvsQCD",FatJet_deepTagMD_ZvsQCD, "FatJet_deepTagMD_ZvsQCD[nFatJet]/F");
   tree_out->Branch("FatJet_deepTagMD_bbvsLight", FatJet_deepTagMD_bbvsLight, "FatJet_deepTagMD_bbvsLight[nFatJet]/F");
   tree_out->Branch("FatJet_deepTagMD_ccvsLight", FatJet_deepTagMD_ccvsLight, "FatJet_deepTagMD_ccvsLight[nFatJet]/F");
+  tree_out->Branch("FatJet_particleNetMD_Xbb", FatJet_particleNetMD_Xbb, "FatJet_particleNetMD_Xbb[nFatJet]/F");
+  tree_out->Branch("FatJet_particleNetMD_Xcc", FatJet_particleNetMD_Xcc, "FatJet_particleNetMD_Xcc[nFatJet]/F");
+  tree_out->Branch("FatJet_particleNetMD_Xqq", FatJet_particleNetMD_Xqq, "FatJet_particleNetMD_Xqq[nFatJet]/F");
   tree_out->Branch("FatJet_eta",      FatJet_eta,     "FatJet_eta[nFatJet]/F");      //
   tree_out->Branch("FatJet_lsf3",      FatJet_lsf3,     "FatJet_lsf3[nFatJet]/F");      //
   tree_out->Branch("FatJet_mass",      FatJet_mass,     "FatJet_mass[nFatJet]/F");      //
