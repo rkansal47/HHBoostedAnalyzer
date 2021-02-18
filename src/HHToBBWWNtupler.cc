@@ -90,13 +90,52 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     float genHiggs2W1Pt = -1;
     float genHiggs2W1Eta = -1;
     float genHiggs2W1Phi = -1;
-    float genHiggs2W1M = -99.0;
-    int genHiggs2W1Decay = -99;
-    float genHiggs2W2Pt = -99.0;
-    float genHiggs2W2Eta = -99.0;
-    float genHiggs2W2Phi = -99.0;
-    float genHiggs2W2M = -99.0;
-    int genHiggs2W2Decay = -99;
+    float genHiggs2W1M = -1;
+    int genHiggs2W1Decay = -1;
+    float genHiggs2W2Pt = -1;
+    float genHiggs2W2Eta = -1;
+    float genHiggs2W2Phi = -1;
+    float genHiggs2W2M = -1;
+    int genHiggs2W2Decay = -1;
+
+    float genHiggs1b1Pt = -1;
+    float genHiggs1b1Eta = -1;
+    float genHiggs1b1Phi = -1;
+    float genHiggs1b2Pt = -1;
+    float genHiggs1b2Eta = -1;
+    float genHiggs1b2Phi = -1;
+    float genHiggs2b1Pt = -1;
+    float genHiggs2b1Eta = -1;
+    float genHiggs2b1Phi = -1;
+    float genHiggs2b2Pt = -1;
+    float genHiggs2b2Eta = -1;
+    float genHiggs2b2Phi = -1;
+
+    float genHiggs1W1dau1Pt = -1;
+    float genHiggs1W1dau1Eta = -1;
+    float genHiggs1W1dau1Phi = -1;
+    float genHiggs1W1dau2Pt = -1;
+    float genHiggs1W1dau2Eta = -1;
+    float genHiggs1W1dau2Phi = -1;
+    float genHiggs1W2dau1Pt = -1;
+    float genHiggs1W2dau1Eta = -1;
+    float genHiggs1W2dau1Phi = -1;
+    float genHiggs1W2dau2Pt = -1;
+    float genHiggs1W2dau2Eta = -1;
+    float genHiggs1W2dau2Phi = -1;
+
+    float genHiggs2W1dau1Pt = -1;
+    float genHiggs2W1dau1Eta = -1;
+    float genHiggs2W1dau1Phi = -1;
+    float genHiggs2W1dau2Pt = -1;
+    float genHiggs2W1dau2Eta = -1;
+    float genHiggs2W1dau2Phi = -1;
+    float genHiggs2W2dau1Pt = -1;
+    float genHiggs2W2dau1Eta = -1;
+    float genHiggs2W2dau1Phi = -1;
+    float genHiggs2W2dau2Pt = -1;
+    float genHiggs2W2dau2Eta = -1;
+    float genHiggs2W2dau2Phi = -1;
 
     int NJets = 0;
     float MET = -1;
@@ -105,8 +144,8 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     float fatJet1Phi = -99;
     float fatJet1Mass = -99;
     float fatJet1MassSD = -99;
-    float fatJet1DeepAK8H = -99;
-    float fatJet1DeepAK8H4qMD = -99;
+    //float fatJet1DeepAK8H = -99;
+    //float fatJet1DeepAK8H4qMD = -99;
     float fatJet1DeepAK8_H = -99;
     float fatJet1DeepAK8MD_H4qvsQCD = -99;
     float fatJet1PNetXbb = -99;
@@ -135,8 +174,8 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     float fatJet2Phi = -99;
     float fatJet2Mass = -99;
     float fatJet2MassSD = -99;
-    float fatJet2DeepAK8H = -99;
-    float fatJet2DeepAK8H4qMD = -99;
+    //float fatJet2DeepAK8H = -99;
+    //float fatJet2DeepAK8H4qMD = -99;
     float fatJet2DeepAK8_H = -99;
     float fatJet2DeepAK8MD_H4qvsQCD = -99;
     float fatJet2PNetXbb = -99;
@@ -164,8 +203,8 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     float fatJet3Phi = -99;
     float fatJet3Mass = -99;
     float fatJet3MassSD = -99;
-    float fatJet3DeepAK8H = -99;
-    float fatJet3DeepAK8H4qMD = -99;
+    //float fatJet3DeepAK8H = -99;
+    //float fatJet3DeepAK8H4qMD = -99;
     float fatJet3DeepAK8_H = -99;
     float fatJet3DeepAK8MD_H4qvsQCD = -99;
     float fatJet3PNetXbb = -99;
@@ -246,8 +285,8 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     outputTree->Branch("fatJet1Phi", &fatJet1Phi, "fatJet1Phi/F");
     outputTree->Branch("fatJet1Mass", &fatJet1Mass, "fatJet1Mass/F");
     outputTree->Branch("fatJet1MassSD", &fatJet1MassSD, "fatJet1MassSD/F");
-    outputTree->Branch("fatJet1DeepAK8H", &fatJet1DeepAK8H, "fatJet1DeepAK8H/F");
-    outputTree->Branch("fatJet1DeepAK8H4qMD", &fatJet1DeepAK8H4qMD, "fatJet1DeepAK8H4qMD/F");
+    //outputTree->Branch("fatJet1DeepAK8H", &fatJet1DeepAK8H, "fatJet1DeepAK8H/F");
+    //outputTree->Branch("fatJet1DeepAK8H4qMD", &fatJet1DeepAK8H4qMD, "fatJet1DeepAK8H4qMD/F");
     outputTree->Branch("fatJet1DeepAK8_H", &fatJet1DeepAK8_H, "fatJet1DeepAK8_H/F");
     outputTree->Branch("fatJet1DeepAK8MD_H4qvsQCD", &fatJet1DeepAK8MD_H4qvsQCD, "fatJet1DeepAK8MD_H4qvsQCD/F");
     outputTree->Branch("fatJet1PNetXbb", &fatJet1PNetXbb, "fatJet1PNetXbb/F");
@@ -326,13 +365,97 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     outputTree->Branch("genHiggs2W2M", &genHiggs2W2M, "genHiggs2W2M/F");
     outputTree->Branch("genHiggs2W2Decay", &genHiggs2W2Decay, "genHiggs2W2Decay/I");
 
+    outputTree->Branch("genHiggs1b1Pt", &genHiggs1b1Pt, "genHiggs1b1Pt/F");
+    outputTree->Branch("genHiggs1b1Eta", &genHiggs1b1Eta, "genHiggs1b1Eta/F");
+    outputTree->Branch("genHiggs1b1Phi", &genHiggs1b1Phi, "genHiggs1b1Phi/F");
+    outputTree->Branch("genHiggs1b2Pt", &genHiggs1b2Pt, "genHiggs1b2Pt/F");
+    outputTree->Branch("genHiggs1b2Eta", &genHiggs1b2Eta, "genHiggs1b2Eta/F");
+    outputTree->Branch("genHiggs1b2Phi", &genHiggs1b2Phi, "genHiggs1b2Phi/F");
+    outputTree->Branch("genHiggs2b1Pt", &genHiggs2b1Pt, "genHiggs2b1Pt/F");
+    outputTree->Branch("genHiggs2b1Eta", &genHiggs2b1Eta, "genHiggs2b1Eta/F");
+    outputTree->Branch("genHiggs2b1Phi", &genHiggs2b1Phi, "genHiggs2b1Phi/F");
+    outputTree->Branch("genHiggs2b2Pt", &genHiggs2b2Pt, "genHiggs2b2Pt/F");
+    outputTree->Branch("genHiggs2b2Eta", &genHiggs2b2Eta, "genHiggs2b2Eta/F");
+    outputTree->Branch("genHiggs2b2Phi", &genHiggs2b2Phi, "genHiggs2b2Phi/F");
+
+    outputTree->Branch("genHiggs1W1dau1Pt", &genHiggs1W1dau1Pt, "genHiggs1W1dau1Pt/F");
+    outputTree->Branch("genHiggs1W1dau1Eta", &genHiggs1W1dau1Eta,"genHiggs1W1dau1Eta/F");
+    outputTree->Branch("genHiggs1W1dau1Phi", &genHiggs1W1dau1Phi,"genHiggs1W1dau1Phi/F");
+    outputTree->Branch("genHiggs1W1dau2Pt", &genHiggs1W1dau2Pt,"genHiggs1W1dau2Pt/F");
+    outputTree->Branch("genHiggs1W1dau2Eta", &genHiggs1W1dau2Eta,"genHiggs1W1dau2Eta/F");
+    outputTree->Branch("genHiggs1W1dau2Phi", &genHiggs1W1dau2Phi,"genHiggs1W1dau2Phi/F");
+    outputTree->Branch("genHiggs1W2dau1Pt", &genHiggs1W2dau1Pt,"genHiggs1W2dau1Pt/F");
+    outputTree->Branch("genHiggs1W2dau1Eta", &genHiggs1W2dau1Eta,"genHiggs1W2dau1Eta/F");
+    outputTree->Branch("genHiggs1W2dau1Phi", &genHiggs1W2dau1Phi,"genHiggs1W2dau1Phi/F");
+    outputTree->Branch("genHiggs1W2dau2Pt", &genHiggs1W2dau2Pt,"genHiggs1W2dau2Pt/F");
+    outputTree->Branch("genHiggs1W2dau2Eta", &genHiggs1W2dau2Eta,"genHiggs1W2dau2Eta/F");
+    outputTree->Branch("genHiggs1W2dau2Phi", &genHiggs1W2dau2Phi,"genHiggs1W2dau2Phi/F");
+
+    outputTree->Branch("genHiggs2W1dau1Pt", &genHiggs2W1dau1Pt,"genHiggs2W1dau1Pt/F");
+    outputTree->Branch("genHiggs2W1dau1Eta", &genHiggs2W1dau1Eta,"genHiggs2W1dau1Eta/F");
+    outputTree->Branch("genHiggs2W1dau1Phi", &genHiggs2W1dau1Phi,"genHiggs2W1dau1Phi/F");
+    outputTree->Branch("genHiggs2W1dau2Pt", &genHiggs2W1dau2Pt,"genHiggs2W1dau2Pt/F");
+    outputTree->Branch("genHiggs2W1dau2Eta", &genHiggs2W1dau2Eta,"genHiggs2W1dau2Eta/F");
+    outputTree->Branch("genHiggs2W1dau2Phi", &genHiggs2W1dau2Phi,"genHiggs2W1dau2Phi/F");
+    outputTree->Branch("genHiggs2W2dau1Pt", &genHiggs2W2dau1Pt,"genHiggs2W2dau1Pt/F");
+    outputTree->Branch("genHiggs2W2dau1Eta", &genHiggs2W2dau1Eta,"genHiggs2W2dau1Eta/F");
+    outputTree->Branch("genHiggs2W2dau1Phi", &genHiggs2W2dau1Phi,"genHiggs2W2dau1Phi/F");
+    outputTree->Branch("genHiggs2W2dau2Pt", &genHiggs2W2dau2Pt,"genHiggs2W2dau2Pt/F");
+    outputTree->Branch("genHiggs2W2dau2Eta", &genHiggs2W2dau2Eta,"genHiggs2W2dau2Eta/F");
+    outputTree->Branch("genHiggs2W2dau2Phi", &genHiggs2W2dau2Phi,"genHiggs2W2dau2Phi/F");
+
+    outputTree->Branch("NJets", &NJets, "NJets/I");
+    outputTree->Branch("MET", &MET, "MET/F");
+    outputTree->Branch("fatJet1Pt", &fatJet1Pt, "fatJet1Pt/F");
+    outputTree->Branch("fatJet1Eta", &fatJet1Eta, "fatJet1Eta/F");
+    outputTree->Branch("fatJet1Phi", &fatJet1Phi, "fatJet1Phi/F");
+    outputTree->Branch("fatJet1Mass", &fatJet1Mass, "fatJet1Mass/F");
+    outputTree->Branch("fatJet1MassSD", &fatJet1MassSD, "fatJet1MassSD/F");
+    outputTree->Branch("fatJet1DeepAK8_H", &fatJet1DeepAK8_H, "fatJet1DeepAK8_H/F");
+    outputTree->Branch("fatJet1DeepAK8MD_H4qvsQCD", &fatJet1DeepAK8MD_H4qvsQCD, "fatJet1DeepAK8MD_H4qvsQCD/F");
+    outputTree->Branch("fatJet1PNetXbb", &fatJet1PNetXbb, "fatJet1PNetXbb/F");
+    outputTree->Branch("fatJet1PNetXbb_alt", &fatJet1PNetXbb_alt, "fatJet1PNetXbb_alt/F");
+    outputTree->Branch("fatJet1PNetQCDb", &fatJet1PNetQCDb, "fatJet1PNetQCDb/F");
+    outputTree->Branch("fatJet1PNetQCDbb", &fatJet1PNetQCDbb, "fatJet1PNetQCDbb/F");
+    outputTree->Branch("fatJet1PNetQCDc", &fatJet1PNetQCDc, "fatJet1PNetQCDc/F");
+    outputTree->Branch("fatJet1PNetQCDcc", &fatJet1PNetQCDcc, "fatJet1PNetQCDcc/F");
+    outputTree->Branch("fatJet1PNetQCDothers", &fatJet1PNetQCDothers, "fatJet1PNetQCDothers/F");
+    outputTree->Branch("fatJet1GenMatchIndex", &fatJet1GenMatchIndex, "fatJet1GenMatchIndex/I");
+    outputTree->Branch("fatJet1Tau4OverTau3", &fatJet1Tau4OverTau3, "fatJet1Tau4OverTau3/F");
+    outputTree->Branch("fatJet1Tau4OverTau2", &fatJet1Tau4OverTau2, "fatJet1Tau4OverTau2/F");
+    outputTree->Branch("fatJet1Tau4OverTau1", &fatJet1Tau4OverTau1, "fatJet1Tau4OverTau1/F");
+    outputTree->Branch("fatJet1Tau2OverTau1", &fatJet1Tau2OverTau1, "fatJet1Tau2OverTau1/F");
+    outputTree->Branch("fatJet1n2b1", &fatJet1n2b1, "fatJet1n2b1/F");
+    outputTree->Branch("fatJet1lsf3", &fatJet1lsf3, "fatJet1lsf3/F");
+    outputTree->Branch("fatJet1HasMuon", &fatJet1HasMuon, "fatJet1HasMuon/O");
+    outputTree->Branch("fatJet1HasElectron", &fatJet1HasElectron, "fatJet1HasElectron/O");
+    outputTree->Branch("fatJet1HasBJetCSVLoose", &fatJet1HasBJetCSVLoose, "fatJet1HasBJetCSVLoose/O");
+    outputTree->Branch("fatJet1HasBJetCSVMedium", &fatJet1HasBJetCSVMedium, "fatJet1HasBJetCSVMedium/O");
+    outputTree->Branch("fatJet1HasBJetCSVTight", &fatJet1HasBJetCSVTight, "fatJet1HasBJetCSVTight/O");
+    outputTree->Branch("fatJet1OppositeHemisphereHasBJet", &fatJet1OppositeHemisphereHasBJet, "fatJet1OppositeHemisphereHasBJet/O");
+
+    outputTree->Branch("jet1Pt", &jet1Pt, "jet1Pt/F");
+    outputTree->Branch("jet1Eta", &jet1Eta, "jet1Eta/F");
+    outputTree->Branch("jet1Phi", &jet1Phi, "jet1Phi/F");
+    outputTree->Branch("jet1DeepJetBTag", &jet1DeepJetBTag, "jet1DeepJetBTag/F");
+    outputTree->Branch("jet2Pt", &jet2Pt, "jet2Pt/F");
+    outputTree->Branch("jet2Eta", &jet2Eta, "jet2Eta/F");
+    outputTree->Branch("jet2Phi", &jet2Phi, "jet2Phi/F");
+    outputTree->Branch("jet2DeepJetBTag", &jet2DeepJetBTag, "jet2DeepJetBTag/F");
+    outputTree->Branch("jet3Pt", &jet3Pt, "jet3Pt/F");
+    outputTree->Branch("jet3Eta", &jet3Eta, "jet3Eta/F");
+    outputTree->Branch("jet3Phi", &jet3Phi, "jet3Phi/F");
+    outputTree->Branch("jet3DeepJetBTag", &jet3DeepJetBTag, "jet3DeepJetBTag/F");
+    outputTree->Branch("jet4Pt", &jet4Pt, "jet4Pt/F");
+    outputTree->Branch("jet4Eta", &jet4Eta, "jet4Eta/F");
+    outputTree->Branch("jet4Phi", &jet4Phi, "jet4Phi/F");
+    outputTree->Branch("jet4DeepJetBTag", &jet4DeepJetBTag, "jet4DeepJetBTag/F");
+
     outputTree->Branch("fatJet2Pt", &fatJet2Pt, "fatJet2Pt/F");
     outputTree->Branch("fatJet2Eta", &fatJet2Eta, "fatJet2Eta/F");
     outputTree->Branch("fatJet2Phi", &fatJet2Phi, "fatJet2Phi/F");
     outputTree->Branch("fatJet2Mass", &fatJet2Mass, "fatJet2Mass/F");
     outputTree->Branch("fatJet2MassSD", &fatJet2MassSD, "fatJet2MassSD/F");
-    //outputTree->Branch("fatJet2DeepAK8H", &fatJet2DeepAK8H, "fatJet2DeepAK8H/F");
-    //outputTree->Branch("fatJet2DeepAK8H4qMD", &fatJet2DeepAK8H4qMD, "fatJet2DeepAK8H4qMD/F");
     outputTree->Branch("fatJet2DeepAK8_H", &fatJet2DeepAK8_H, "fatJet2DeepAK8_H/F");
     outputTree->Branch("fatJet2DeepAK8MD_H4qvsQCD", &fatJet2DeepAK8MD_H4qvsQCD,"fatJet2DeepAK8MD_H4qvsQCD/F");
     outputTree->Branch("fatJet2PNetXbb", &fatJet2PNetXbb, "fatJet2PNetXbb/F");
@@ -359,8 +482,6 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     outputTree->Branch("fatJet3Phi", &fatJet3Phi, "fatJet3Phi/F");
     outputTree->Branch("fatJet3Mass", &fatJet3Mass, "fatJet3Mass/F");
     outputTree->Branch("fatJet3MassSD", &fatJet3MassSD, "fatJet3MassSD/F");
-    //outputTree->Branch("fatJet3DeepAK8H", &fatJet3DeepAK8H, "fatJet3DeepAK8H/F");
-    //outputTree->Branch("fatJet3DeepAK8H4qMD", &fatJet3DeepAK8H4qMD, "fatJet3DeepAK8H4qMD/F");
     outputTree->Branch("fatJet3DeepAK8_H", &fatJet3DeepAK8_H, "fatJet3DeepAK8_H/F");
     outputTree->Branch("fatJet3DeepAK8MD_H4qvsQCD", &fatJet3DeepAK8MD_H4qvsQCD,"fatJet3DeepAK8MD_H4qvsQCD/F");
     outputTree->Branch("fatJet3PNetXbb", &fatJet3PNetXbb, "fatJet3PNetXbb/F");
@@ -510,11 +631,50 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       genHiggs2W2Phi = -99.0;
       genHiggs2W2M = -99.0;
       genHiggs2W2Decay = -99;
+      genHiggs1b1Pt = -99.0;
+      genHiggs1b1Eta = -99.0;
+      genHiggs1b1Phi = -99.0;
+      genHiggs1b2Pt = -99.0;
+      genHiggs1b2Eta = -99.0;
+      genHiggs1b2Phi = -99.0;
+      genHiggs2b1Pt = -99.0;
+      genHiggs2b1Eta = -99.0;
+      genHiggs2b1Phi = -99.0;
+      genHiggs2b2Pt = -99.0;
+      genHiggs2b2Eta = -99.0;
+      genHiggs2b2Phi = -99.0;
       genLeptonId = 0;
       genLeptonMotherId = 0;
       genLeptonPt = -99.0;
       genLeptonEta = -99.0;
       genLeptonPhi = -99.0;
+
+      genHiggs1W1dau1Pt = -99.0;
+      genHiggs1W1dau1Eta = -99.0;
+      genHiggs1W1dau1Phi = -99.0;
+      genHiggs1W1dau2Pt = -99.0;
+      genHiggs1W1dau2Eta = -99.0;
+      genHiggs1W1dau2Phi = -99.0;
+      genHiggs1W2dau1Pt = -99.0;
+      genHiggs1W2dau1Eta = -99.0;
+      genHiggs1W2dau1Phi = -99.0;
+      genHiggs1W2dau2Pt = -99.0;
+      genHiggs1W2dau2Eta = -99.0;
+      genHiggs1W2dau2Phi = -99.0;
+
+      genHiggs2W1dau1Pt = -99.0;
+      genHiggs2W1dau1Eta = -99.0;
+      genHiggs2W1dau1Phi = -99.0;
+      genHiggs2W1dau2Pt = -99.0;
+      genHiggs2W1dau2Eta = -99.0;
+      genHiggs2W1dau2Phi = -99.0;
+      genHiggs2W2dau1Pt = -99.0;
+      genHiggs2W2dau1Eta = -99.0;
+      genHiggs2W2dau1Phi = -99.0;
+      genHiggs2W2dau2Pt = -99.0;
+      genHiggs2W2dau2Eta = -99.0;
+      genHiggs2W2dau2Phi = -99.0;
+
       NJets = -1;
       MET = -99.0;
 
@@ -523,8 +683,8 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       fatJet1Phi = -99.0;
       fatJet1Mass = -99.0;
       fatJet1MassSD = -99.0;
-      fatJet1DeepAK8H = -99.0;
-      fatJet1DeepAK8H4qMD = -99.0;
+      //fatJet1DeepAK8H = -99.0;
+      //fatJet1DeepAK8H4qMD = -99.0;
       fatJet1DeepAK8_H = -99.0;
       fatJet1DeepAK8MD_H4qvsQCD = -99.0;
       fatJet1PNetXbb = -99;
@@ -552,8 +712,8 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       fatJet2Phi = -99.0;
       fatJet2Mass = -99.0;
       fatJet2MassSD = -99.0;
-      fatJet2DeepAK8H = -99.0;
-      fatJet2DeepAK8H4qMD = -99.0;
+      //fatJet2DeepAK8H = -99.0;
+      //fatJet2DeepAK8H4qMD = -99.0;
       fatJet2DeepAK8_H = -99.0;
       fatJet2DeepAK8MD_H4qvsQCD = -99.0;
       fatJet2PNetXbb = -99;
@@ -580,8 +740,8 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       fatJet3Phi = -99.0;
       fatJet3Mass = -99.0;
       fatJet3MassSD = -99.0;
-      fatJet3DeepAK8H = -99.0;
-      fatJet3DeepAK8H4qMD = -99.0;
+      //fatJet3DeepAK8H = -99.0;
+      //fatJet3DeepAK8H4qMD = -99.0;
       fatJet3DeepAK8_H = -99.0;
       fatJet3DeepAK8MD_H4qvsQCD = -99.0;
       fatJet3PNetXbb = -99;      
@@ -685,36 +845,62 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 	}
 
 	for(int j = 0; j < genHiggsIndex.size(); j++) {
-	  std::vector< TLorentzVector > genWVector;
+	  std::vector< TLorentzVector > genWVector, genbVector;
 	  std::vector< int > genWIndex;
 	  for(int i = 0; i < nGenPart; i++) {
-	    if( abs(GenPart_pdgId[i]) == 24 && GenPart_genPartIdxMother[i] == genHiggsIndex[j] ) {
+	    if( abs(GenPart_pdgId[i]) == 5 && GenPart_genPartIdxMother[i] == genHiggsIndex[j] ) {
+	      TLorentzVector b;
+	      b.SetPtEtaPhiM( GenPart_pt[i], GenPart_eta[i], GenPart_phi[i], GenPart_mass[i]);
+	      genbVector.push_back(b);
+	    }
+	    if( abs(GenPart_pdgId[i]) == 24 && GenPart_genPartIdxMother[i] == genHiggsIndex[j] && GenPart_status[i]==22) {
 	      TLorentzVector w;
 	      w.SetPtEtaPhiM( GenPart_pt[i], GenPart_eta[i], GenPart_phi[i], GenPart_mass[i]);
 	      genWVector.push_back(w);
 	      genWIndex.push_back(i);
 	    }
 	  }
+	  std::vector< TLorentzVector > genWdauVector;
 	  std::vector< int > genWdecay;
 	  for(int k = 0; k < genWIndex.size(); k++) {
+	    int wdecay=0;
+	    bool found=true;
 	    for(int i = 0; i < nGenPart; i++) {
-	      int wdecay=0;
+	      if(abs(GenPart_pdgId[i]) == 24)
+		continue;
 	      // codes to label W decay
 	      // 1: Wquarks, 2: Wenu, 3: Wmnu, 4: Wtaunu
 	      if(GenPart_genPartIdxMother[i] == genWIndex[k]){
 		if(abs(GenPart_pdgId[i]) <= 5) wdecay=1;
 		if(abs(GenPart_pdgId[i]) == 11 || abs(GenPart_pdgId[i]) == 12) wdecay=2; 
 		if(abs(GenPart_pdgId[i]) == 13 || abs(GenPart_pdgId[i]) == 14) wdecay=3;
-                if(abs(GenPart_pdgId[i]) == 15 || abs(GenPart_pdgId[i]) == 16) wdecay=3;
+		if(abs(GenPart_pdgId[i]) == 15 || abs(GenPart_pdgId[i]) == 16) wdecay=4;
+		if(abs(GenPart_pdgId[i]) == 22) wdecay=5;
+		if(found){
+		  genWdecay.push_back(wdecay);
+		  found=false;
+		}
+		TLorentzVector d;
+		d.SetPtEtaPhiM( GenPart_pt[i], GenPart_eta[i], GenPart_phi[i], GenPart_mass[i]);
+		genWdauVector.push_back(d);
+		//break;
 	      }
-	      genWdecay.push_back(wdecay);
 	    }
 	  }
-
+	  std::cout << " genWdecay " << genWdecay.size() << std::endl;
+	  std::cout << " genWdauVector size " <<  genWdauVector.size() << std::endl;
 	  if(j==0){
 	    genHiggs1Pt = genHiggsVector[j].Pt();
 	    genHiggs1Eta = genHiggsVector[j].Eta();
 	    genHiggs1Phi = genHiggsVector[j].Phi();
+	    if(genbVector.size()>1){
+	      genHiggs1b1Pt = genbVector[0].Pt();
+              genHiggs1b1Eta = genbVector[0].Eta();
+              genHiggs1b1Phi = genbVector[0].Phi();
+	      genHiggs1b2Pt = genbVector[1].Pt();
+              genHiggs1b2Eta = genbVector[1].Eta();
+              genHiggs1b2Phi = genbVector[1].Phi();
+	    }
 	    if(genWVector.size()>1){
 	      genHiggs1W1Pt = genWVector[0].Pt();
 	      genHiggs1W1Eta = genWVector[0].Eta();
@@ -726,12 +912,34 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 	      genHiggs1W2Phi = genWVector[1].Phi();
               genHiggs1W2M = genWVector[1].M();
               genHiggs1W2Decay = genWdecay[1];
+	      if(genWdauVector.size()>3){
+		genHiggs1W1dau1Pt = genWdauVector[0].Pt();
+		genHiggs1W1dau1Eta = genWdauVector[0].Eta();
+		genHiggs1W1dau1Phi = genWdauVector[0].Phi();
+		genHiggs1W1dau2Pt = genWdauVector[1].Pt();
+		genHiggs1W1dau2Eta = genWdauVector[1].Eta();
+		genHiggs1W1dau2Phi = genWdauVector[1].Phi();
+		genHiggs1W2dau1Pt = genWdauVector[2].Pt();
+		genHiggs1W2dau1Eta = genWdauVector[2].Eta();
+		genHiggs1W2dau1Phi = genWdauVector[2].Phi();
+		genHiggs1W2dau2Pt = genWdauVector[3].Pt();
+		genHiggs1W2dau2Eta = genWdauVector[3].Eta();
+		genHiggs1W2dau2Phi = genWdauVector[3].Phi();
+	      }
 	    }
 	  }
           if(j==1){
             genHiggs2Pt = genHiggsVector[j].Pt();
             genHiggs2Eta = genHiggsVector[j].Eta();
             genHiggs2Phi = genHiggsVector[j].Phi();
+	    if(genbVector.size()>1){
+	      genHiggs2b1Pt = genbVector[0].Pt();
+              genHiggs2b1Eta = genbVector[0].Eta();
+              genHiggs2b1Phi = genbVector[0].Phi();
+              genHiggs2b2Pt = genbVector[1].Pt();
+              genHiggs2b2Eta = genbVector[1].Eta();
+              genHiggs2b2Phi = genbVector[1].Phi();
+            }
 	    if(genWVector.size()>1){
               genHiggs2W1Pt = genWVector[0].Pt();
               genHiggs2W1Eta = genWVector[0].Eta();
@@ -743,6 +951,20 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
               genHiggs2W2Phi = genWVector[1].Phi();
               genHiggs2W2M = genWVector[1].M();
               genHiggs2W2Decay = genWdecay[1];
+              if(genWdauVector.size()>3){
+                genHiggs2W1dau1Pt = genWdauVector[0].Pt();
+                genHiggs2W1dau1Eta = genWdauVector[0].Eta();
+                genHiggs2W1dau1Phi = genWdauVector[0].Phi();
+                genHiggs2W1dau2Pt = genWdauVector[1].Pt();
+                genHiggs2W1dau2Eta = genWdauVector[1].Eta();
+                genHiggs2W1dau2Phi = genWdauVector[1].Phi();
+                genHiggs2W2dau1Pt = genWdauVector[2].Pt();
+                genHiggs2W2dau1Eta = genWdauVector[2].Eta();
+                genHiggs2W2dau1Phi = genWdauVector[2].Phi();
+                genHiggs2W2dau2Pt = genWdauVector[3].Pt();
+                genHiggs2W2dau2Eta = genWdauVector[3].Eta();
+                genHiggs2W2dau2Phi = genWdauVector[3].Phi();
+              }
             }
           }
 	}
@@ -802,8 +1024,8 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       fatJet1Phi = FatJet_phi[fatJet1Index];
       fatJet1Mass = FatJet_mass[fatJet1Index];
       fatJet1MassSD = FatJet_msoftdrop[fatJet1Index];
-      fatJet1DeepAK8H = FatJet_deepTagHqqqq[fatJet1Index];
-      fatJet1DeepAK8H4qMD = FatJet_deepTagMDHqqqq[fatJet1Index];
+      //fatJet1DeepAK8H = FatJet_deepTagHqqqq[fatJet1Index];
+      //fatJet1DeepAK8H4qMD = FatJet_deepTagMDHqqqq[fatJet1Index];
       fatJet1DeepAK8_H = FatJet_deepTag_H[fatJet1Index];
       fatJet1DeepAK8MD_H4qvsQCD = FatJet_deepTagMD_H4qvsQCD[fatJet1Index];
       // add also particleNet_H4qvsQCD
@@ -902,8 +1124,8 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       fatJet2Phi = FatJet_phi[fatJet2Index];
       fatJet2Mass = FatJet_mass[fatJet2Index];
       fatJet2MassSD = FatJet_msoftdrop[fatJet2Index];
-      fatJet2DeepAK8H = FatJet_deepTagHqqqq[fatJet2Index];
-      fatJet2DeepAK8H4qMD = FatJet_deepTagMDHqqqq[fatJet2Index];
+      //fatJet2DeepAK8H = FatJet_deepTagHqqqq[fatJet2Index];
+      //fatJet2DeepAK8H4qMD = FatJet_deepTagMDHqqqq[fatJet2Index];
       fatJet2DeepAK8_H = FatJet_deepTag_H[fatJet2Index];
       fatJet2DeepAK8MD_H4qvsQCD = FatJet_deepTagMD_H4qvsQCD[fatJet2Index];
       fatJet2PNetXbb = FatJet_ParticleNetMD_probXbb[fatJet2Index]/(1.0 - FatJet_ParticleNetMD_probXcc[fatJet2Index] - FatJet_ParticleNetMD_probXqq[fatJet2Index]);
@@ -978,8 +1200,8 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 	fatJet3Phi = FatJet_phi[fatJet3Index];
 	fatJet3Mass = FatJet_mass[fatJet3Index];
 	fatJet3MassSD = FatJet_msoftdrop[fatJet3Index];
-	fatJet3DeepAK8H = FatJet_deepTagHqqqq[fatJet3Index];
-	fatJet3DeepAK8H4qMD = FatJet_deepTagMDHqqqq[fatJet3Index];
+	//fatJet3DeepAK8H = FatJet_deepTagHqqqq[fatJet3Index];
+	//fatJet3DeepAK8H4qMD = FatJet_deepTagMDHqqqq[fatJet3Index];
 	fatJet3DeepAK8_H = FatJet_deepTag_H[fatJet3Index];
 	fatJet3DeepAK8MD_H4qvsQCD = FatJet_deepTagMD_H4qvsQCD[fatJet3Index];
 	fatJet3PNetXbb = FatJet_ParticleNetMD_probXbb[fatJet3Index]/(1.0 - FatJet_ParticleNetMD_probXcc[fatJet3Index] - FatJet_ParticleNetMD_probXqq[fatJet3Index]);
