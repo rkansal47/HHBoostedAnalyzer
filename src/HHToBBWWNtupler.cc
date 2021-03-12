@@ -114,28 +114,36 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     float genHiggs1W1dau1Pt = -1;
     float genHiggs1W1dau1Eta = -1;
     float genHiggs1W1dau1Phi = -1;
+    int genHiggs1W1dau1Id = 0;
     float genHiggs1W1dau2Pt = -1;
     float genHiggs1W1dau2Eta = -1;
     float genHiggs1W1dau2Phi = -1;
+    int genHiggs1W1dau2Id = 0;
     float genHiggs1W2dau1Pt = -1;
     float genHiggs1W2dau1Eta = -1;
     float genHiggs1W2dau1Phi = -1;
+    int genHiggs1W2dau1Id = 0;
     float genHiggs1W2dau2Pt = -1;
     float genHiggs1W2dau2Eta = -1;
     float genHiggs1W2dau2Phi = -1;
+    int genHiggs1W2dau2Id = 0;
 
     float genHiggs2W1dau1Pt = -1;
     float genHiggs2W1dau1Eta = -1;
     float genHiggs2W1dau1Phi = -1;
+    int genHiggs2W1dau1Id = 0;
     float genHiggs2W1dau2Pt = -1;
     float genHiggs2W1dau2Eta = -1;
     float genHiggs2W1dau2Phi = -1;
+    int genHiggs2W1dau2Id = 0;
     float genHiggs2W2dau1Pt = -1;
     float genHiggs2W2dau1Eta = -1;
     float genHiggs2W2dau1Phi = -1;
+    int genHiggs2W2dau1Id = 0;
     float genHiggs2W2dau2Pt = -1;
     float genHiggs2W2dau2Eta = -1;
     float genHiggs2W2dau2Phi = -1;
+    int genHiggs2W2dau2Id = 0;
 
     int NJets = 0;
     float MET = -1;
@@ -381,28 +389,36 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     outputTree->Branch("genHiggs1W1dau1Pt", &genHiggs1W1dau1Pt, "genHiggs1W1dau1Pt/F");
     outputTree->Branch("genHiggs1W1dau1Eta", &genHiggs1W1dau1Eta,"genHiggs1W1dau1Eta/F");
     outputTree->Branch("genHiggs1W1dau1Phi", &genHiggs1W1dau1Phi,"genHiggs1W1dau1Phi/F");
+    outputTree->Branch("genHiggs1W1dau1Id", &genHiggs1W1dau1Id,"genHiggs1W1dau1Id/I");
     outputTree->Branch("genHiggs1W1dau2Pt", &genHiggs1W1dau2Pt,"genHiggs1W1dau2Pt/F");
     outputTree->Branch("genHiggs1W1dau2Eta", &genHiggs1W1dau2Eta,"genHiggs1W1dau2Eta/F");
     outputTree->Branch("genHiggs1W1dau2Phi", &genHiggs1W1dau2Phi,"genHiggs1W1dau2Phi/F");
+    outputTree->Branch("genHiggs1W1dau2Id", &genHiggs1W1dau2Id,"genHiggs1W1dau2Id/I");
     outputTree->Branch("genHiggs1W2dau1Pt", &genHiggs1W2dau1Pt,"genHiggs1W2dau1Pt/F");
     outputTree->Branch("genHiggs1W2dau1Eta", &genHiggs1W2dau1Eta,"genHiggs1W2dau1Eta/F");
     outputTree->Branch("genHiggs1W2dau1Phi", &genHiggs1W2dau1Phi,"genHiggs1W2dau1Phi/F");
+    outputTree->Branch("genHiggs1W2dau1Id", &genHiggs1W2dau1Id,"genHiggs1W2dau1Id/I");
     outputTree->Branch("genHiggs1W2dau2Pt", &genHiggs1W2dau2Pt,"genHiggs1W2dau2Pt/F");
     outputTree->Branch("genHiggs1W2dau2Eta", &genHiggs1W2dau2Eta,"genHiggs1W2dau2Eta/F");
     outputTree->Branch("genHiggs1W2dau2Phi", &genHiggs1W2dau2Phi,"genHiggs1W2dau2Phi/F");
+    outputTree->Branch("genHiggs1W2dau2Id", &genHiggs1W2dau2Id,"genHiggs1W2dau2Id/I");
 
     outputTree->Branch("genHiggs2W1dau1Pt", &genHiggs2W1dau1Pt,"genHiggs2W1dau1Pt/F");
     outputTree->Branch("genHiggs2W1dau1Eta", &genHiggs2W1dau1Eta,"genHiggs2W1dau1Eta/F");
     outputTree->Branch("genHiggs2W1dau1Phi", &genHiggs2W1dau1Phi,"genHiggs2W1dau1Phi/F");
+    outputTree->Branch("genHiggs2W1dau1Id", &genHiggs2W1dau1Id,"genHiggs2W1dau1Id/I");
     outputTree->Branch("genHiggs2W1dau2Pt", &genHiggs2W1dau2Pt,"genHiggs2W1dau2Pt/F");
     outputTree->Branch("genHiggs2W1dau2Eta", &genHiggs2W1dau2Eta,"genHiggs2W1dau2Eta/F");
     outputTree->Branch("genHiggs2W1dau2Phi", &genHiggs2W1dau2Phi,"genHiggs2W1dau2Phi/F");
+    outputTree->Branch("genHiggs2W1dau2Id", &genHiggs2W1dau2Id,"genHiggs2W1dau2Id/I");
     outputTree->Branch("genHiggs2W2dau1Pt", &genHiggs2W2dau1Pt,"genHiggs2W2dau1Pt/F");
     outputTree->Branch("genHiggs2W2dau1Eta", &genHiggs2W2dau1Eta,"genHiggs2W2dau1Eta/F");
     outputTree->Branch("genHiggs2W2dau1Phi", &genHiggs2W2dau1Phi,"genHiggs2W2dau1Phi/F");
+    outputTree->Branch("genHiggs2W2dau1Id", &genHiggs2W2dau1Id,"genHiggs2W2dau1Id/I");
     outputTree->Branch("genHiggs2W2dau2Pt", &genHiggs2W2dau2Pt,"genHiggs2W2dau2Pt/F");
     outputTree->Branch("genHiggs2W2dau2Eta", &genHiggs2W2dau2Eta,"genHiggs2W2dau2Eta/F");
     outputTree->Branch("genHiggs2W2dau2Phi", &genHiggs2W2dau2Phi,"genHiggs2W2dau2Phi/F");
+    outputTree->Branch("genHiggs2W2dau2Id", &genHiggs2W2dau2Id,"genHiggs2W2dau2Id/I");
 
     outputTree->Branch("NJets", &NJets, "NJets/I");
     outputTree->Branch("MET", &MET, "MET/F");
@@ -652,28 +668,36 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       genHiggs1W1dau1Pt = -99.0;
       genHiggs1W1dau1Eta = -99.0;
       genHiggs1W1dau1Phi = -99.0;
+      genHiggs1W1dau1Id = 0;
       genHiggs1W1dau2Pt = -99.0;
       genHiggs1W1dau2Eta = -99.0;
       genHiggs1W1dau2Phi = -99.0;
+      genHiggs1W1dau2Id = 0;
       genHiggs1W2dau1Pt = -99.0;
       genHiggs1W2dau1Eta = -99.0;
       genHiggs1W2dau1Phi = -99.0;
+      genHiggs1W2dau1Id = 0;
       genHiggs1W2dau2Pt = -99.0;
       genHiggs1W2dau2Eta = -99.0;
       genHiggs1W2dau2Phi = -99.0;
+      genHiggs1W2dau2Id = 0;
 
       genHiggs2W1dau1Pt = -99.0;
       genHiggs2W1dau1Eta = -99.0;
       genHiggs2W1dau1Phi = -99.0;
+      genHiggs2W1dau1Id = 0;
       genHiggs2W1dau2Pt = -99.0;
       genHiggs2W1dau2Eta = -99.0;
       genHiggs2W1dau2Phi = -99.0;
+      genHiggs2W1dau2Id = 0;
       genHiggs2W2dau1Pt = -99.0;
       genHiggs2W2dau1Eta = -99.0;
       genHiggs2W2dau1Phi = -99.0;
+      genHiggs2W2dau1Id = 0;
       genHiggs2W2dau2Pt = -99.0;
       genHiggs2W2dau2Eta = -99.0;
       genHiggs2W2dau2Phi = -99.0;
+      genHiggs2W2dau2Id = 0;
 
       NJets = -1;
       MET = -99.0;
@@ -861,9 +885,11 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 	    }
 	  }
 	  std::vector< TLorentzVector > genWdauVector;
-	  std::vector< int > genWdecay;
+	  std::vector< int > genWdecay, genWdauId;
 	  for(int k = 0; k < genWIndex.size(); k++) {
 	    int wdecay=0;
+	    
+
 	    bool found=true;
 	    for(int i = 0; i < nGenPart; i++) {
 	      if(abs(GenPart_pdgId[i]) == 24)
@@ -871,24 +897,49 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 	      // codes to label W decay
 	      // 1: Wquarks, 2: Wenu, 3: Wmnu, 4: Wtaunu
 	      if(GenPart_genPartIdxMother[i] == genWIndex[k]){
-		if(abs(GenPart_pdgId[i]) <= 5) wdecay=1;
-		if(abs(GenPart_pdgId[i]) == 11 || abs(GenPart_pdgId[i]) == 12) wdecay=2; 
-		if(abs(GenPart_pdgId[i]) == 13 || abs(GenPart_pdgId[i]) == 14) wdecay=3;
-		if(abs(GenPart_pdgId[i]) == 15 || abs(GenPart_pdgId[i]) == 16) wdecay=4;
-		if(abs(GenPart_pdgId[i]) == 22) wdecay=5;
-		if(found){
-		  genWdecay.push_back(wdecay);
-		  found=false;
+
+		// if a W daughter is a W keep looking further
+		if(abs(GenPart_pdgId[i]) == 24) {
+		  int windex_tmp = i;
+		  for(int j = 0; j < nGenPart; j++) {
+		    if(GenPart_genPartIdxMother[j] == windex_tmp){
+		      if(abs(GenPart_pdgId[j]) <= 5) wdecay=1;
+		      if(abs(GenPart_pdgId[j]) == 11 || abs(GenPart_pdgId[j]) == 12) wdecay=2;
+		      if(abs(GenPart_pdgId[j]) == 13 || abs(GenPart_pdgId[j]) == 14) wdecay=3;
+		      if(abs(GenPart_pdgId[j]) == 15 || abs(GenPart_pdgId[j]) == 16) wdecay=4;
+		      if(abs(GenPart_pdgId[j]) == 22) wdecay=5;
+		      if(found){
+			genWdecay.push_back(wdecay);
+			found=false;
+		      }
+		      TLorentzVector d;
+		      d.SetPtEtaPhiM( GenPart_pt[j], GenPart_eta[j], GenPart_phi[j], GenPart_mass[j]);
+		      genWdauVector.push_back(d);
+		      genWdauId.push_back( abs(GenPart_pdgId[j]) );
+		    }
+		  }
 		}
-		TLorentzVector d;
-		d.SetPtEtaPhiM( GenPart_pt[i], GenPart_eta[i], GenPart_phi[i], GenPart_mass[i]);
-		genWdauVector.push_back(d);
+		else{
+		  if(abs(GenPart_pdgId[i]) <= 5) wdecay=1;
+		  if(abs(GenPart_pdgId[i]) == 11 || abs(GenPart_pdgId[i]) == 12) wdecay=2; 
+		  if(abs(GenPart_pdgId[i]) == 13 || abs(GenPart_pdgId[i]) == 14) wdecay=3;
+		  if(abs(GenPart_pdgId[i]) == 15 || abs(GenPart_pdgId[i]) == 16) wdecay=4;
+		  if(abs(GenPart_pdgId[i]) == 22) wdecay=5;
+		  if(found){
+		    genWdecay.push_back(wdecay);
+		    found=false;
+		  }
+		  TLorentzVector d;
+		  d.SetPtEtaPhiM( GenPart_pt[i], GenPart_eta[i], GenPart_phi[i], GenPart_mass[i]);
+		  genWdauVector.push_back(d);
+		  genWdauId.push_back( abs(GenPart_pdgId[i]) );
+		}
 		//break;
 	      }
 	    }
 	  }
-	  std::cout << " genWdecay " << genWdecay.size() << std::endl;
-	  std::cout << " genWdauVector size " <<  genWdauVector.size() << std::endl;
+	  //std::cout << " genWdecay " << genWdecay.size() << std::endl;
+	  //std::cout << " genWdauVector size " <<  genWdauVector.size() << std::endl;
 	  if(j==0){
 	    genHiggs1Pt = genHiggsVector[j].Pt();
 	    genHiggs1Eta = genHiggsVector[j].Eta();
@@ -916,15 +967,19 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 		genHiggs1W1dau1Pt = genWdauVector[0].Pt();
 		genHiggs1W1dau1Eta = genWdauVector[0].Eta();
 		genHiggs1W1dau1Phi = genWdauVector[0].Phi();
+		genHiggs1W1dau1Id = genWdauId[0];
 		genHiggs1W1dau2Pt = genWdauVector[1].Pt();
 		genHiggs1W1dau2Eta = genWdauVector[1].Eta();
 		genHiggs1W1dau2Phi = genWdauVector[1].Phi();
+		genHiggs1W1dau2Id = genWdauId[1];
 		genHiggs1W2dau1Pt = genWdauVector[2].Pt();
 		genHiggs1W2dau1Eta = genWdauVector[2].Eta();
 		genHiggs1W2dau1Phi = genWdauVector[2].Phi();
+		genHiggs1W2dau1Id = genWdauId[2];
 		genHiggs1W2dau2Pt = genWdauVector[3].Pt();
 		genHiggs1W2dau2Eta = genWdauVector[3].Eta();
 		genHiggs1W2dau2Phi = genWdauVector[3].Phi();
+                genHiggs1W2dau2Id = genWdauId[3];
 	      }
 	    }
 	  }
@@ -955,15 +1010,19 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
                 genHiggs2W1dau1Pt = genWdauVector[0].Pt();
                 genHiggs2W1dau1Eta = genWdauVector[0].Eta();
                 genHiggs2W1dau1Phi = genWdauVector[0].Phi();
+		genHiggs2W1dau1Id = genWdauId[0];
                 genHiggs2W1dau2Pt = genWdauVector[1].Pt();
                 genHiggs2W1dau2Eta = genWdauVector[1].Eta();
                 genHiggs2W1dau2Phi = genWdauVector[1].Phi();
+                genHiggs2W1dau2Id = genWdauId[1];
                 genHiggs2W2dau1Pt = genWdauVector[2].Pt();
                 genHiggs2W2dau1Eta = genWdauVector[2].Eta();
                 genHiggs2W2dau1Phi = genWdauVector[2].Phi();
+                genHiggs2W2dau1Id = genWdauId[2];
                 genHiggs2W2dau2Pt = genWdauVector[3].Pt();
                 genHiggs2W2dau2Eta = genWdauVector[3].Eta();
                 genHiggs2W2dau2Phi = genWdauVector[3].Phi();
+                genHiggs2W2dau2Id = genWdauId[3];
               }
             }
           }
