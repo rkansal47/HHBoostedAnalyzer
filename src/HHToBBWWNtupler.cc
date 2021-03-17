@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, string year, string pileupWeightName)
+void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, string year, string pileupWeightName, bool addAK15)
 {
  
     cout << "Initializing..." << endl;
@@ -152,8 +152,6 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     float fatJet1Phi = -99;
     float fatJet1Mass = -99;
     float fatJet1MassSD = -99;
-    //float fatJet1DeepAK8H = -99;
-    //float fatJet1DeepAK8H4qMD = -99;
     float fatJet1DeepAK8_H = -99;
     float fatJet1DeepAK8MD_H4qvsQCD = -99;
     float fatJet1PNetXbb = -99;
@@ -182,8 +180,6 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     float fatJet2Phi = -99;
     float fatJet2Mass = -99;
     float fatJet2MassSD = -99;
-    //float fatJet2DeepAK8H = -99;
-    //float fatJet2DeepAK8H4qMD = -99;
     float fatJet2DeepAK8_H = -99;
     float fatJet2DeepAK8MD_H4qvsQCD = -99;
     float fatJet2PNetXbb = -99;
@@ -211,8 +207,6 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     float fatJet3Phi = -99;
     float fatJet3Mass = -99;
     float fatJet3MassSD = -99;
-    //float fatJet3DeepAK8H = -99;
-    //float fatJet3DeepAK8H4qMD = -99;
     float fatJet3DeepAK8_H = -99;
     float fatJet3DeepAK8MD_H4qvsQCD = -99;
     float fatJet3PNetXbb = -99;
@@ -231,6 +225,32 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     bool fatJet3HasBJetCSVLoose = 0;
     bool fatJet3HasBJetCSVMedium = 0;
     bool fatJet3HasBJetCSVTight = 0;
+
+    float ak15fatJet1Pt = -99;
+    float ak15fatJet1Eta = -99;
+    float ak15fatJet1Phi = -99;
+    float ak15fatJet1Mass = -99;
+    float ak15fatJet1MassSD = -99;
+    float ak15fatJet1PNetMDXbb = -99;
+    float ak15fatJet1PNetHqqqq = -99;
+    float ak15fatJet1PNetQCDb = -99;
+    float ak15fatJet1PNetQCDbb = -99;
+    float ak15fatJet1PNetQCDc = -99;
+    float ak15fatJet1PNetQCDcc = -99;
+    float ak15fatJet1PNetQCDothers = -99;
+    
+    float ak15fatJet2Pt = -99;
+    float ak15fatJet2Eta = -99;
+    float ak15fatJet2Phi = -99;
+    float ak15fatJet2Mass = -99;
+    float ak15fatJet2MassSD = -99;
+    float ak15fatJet2PNetMDXbb = -99;
+    float ak15fatJet2PNetHqqqq = -99;
+    float ak15fatJet2PNetQCDb = -99;
+    float ak15fatJet2PNetQCDbb = -99;
+    float ak15fatJet2PNetQCDc = -99;
+    float ak15fatJet2PNetQCDcc = -99;
+    float ak15fatJet2PNetQCDothers = -99;
 
     float hh_pt = -99;
     float hh_eta = -99;
@@ -285,38 +305,7 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     outputTree->Branch("event", &event, "event/l");
     outputTree->Branch("npu", &Pileup_nTrueInt, "npu/F");
     outputTree->Branch("rho", &fixedGridRhoFastjetAll, "rho/F");
- 
-    outputTree->Branch("NJets", &NJets, "NJets/I");
     outputTree->Branch("MET", &MET, "MET/F");
-    outputTree->Branch("fatJet1Pt", &fatJet1Pt, "fatJet1Pt/F");
-    outputTree->Branch("fatJet1Eta", &fatJet1Eta, "fatJet1Eta/F");
-    outputTree->Branch("fatJet1Phi", &fatJet1Phi, "fatJet1Phi/F");
-    outputTree->Branch("fatJet1Mass", &fatJet1Mass, "fatJet1Mass/F");
-    outputTree->Branch("fatJet1MassSD", &fatJet1MassSD, "fatJet1MassSD/F");
-    //outputTree->Branch("fatJet1DeepAK8H", &fatJet1DeepAK8H, "fatJet1DeepAK8H/F");
-    //outputTree->Branch("fatJet1DeepAK8H4qMD", &fatJet1DeepAK8H4qMD, "fatJet1DeepAK8H4qMD/F");
-    outputTree->Branch("fatJet1DeepAK8_H", &fatJet1DeepAK8_H, "fatJet1DeepAK8_H/F");
-    outputTree->Branch("fatJet1DeepAK8MD_H4qvsQCD", &fatJet1DeepAK8MD_H4qvsQCD, "fatJet1DeepAK8MD_H4qvsQCD/F");
-    outputTree->Branch("fatJet1PNetXbb", &fatJet1PNetXbb, "fatJet1PNetXbb/F");
-    outputTree->Branch("fatJet1PNetXbb_alt", &fatJet1PNetXbb_alt, "fatJet1PNetXbb_alt/F");
-    outputTree->Branch("fatJet1PNetQCDb", &fatJet1PNetQCDb, "fatJet1PNetQCDb/F");
-    outputTree->Branch("fatJet1PNetQCDbb", &fatJet1PNetQCDbb, "fatJet1PNetQCDbb/F");
-    outputTree->Branch("fatJet1PNetQCDc", &fatJet1PNetQCDc, "fatJet1PNetQCDc/F");
-    outputTree->Branch("fatJet1PNetQCDcc", &fatJet1PNetQCDcc, "fatJet1PNetQCDcc/F");
-    outputTree->Branch("fatJet1PNetQCDothers", &fatJet1PNetQCDothers, "fatJet1PNetQCDothers/F");
-    outputTree->Branch("fatJet1GenMatchIndex", &fatJet1GenMatchIndex, "fatJet1GenMatchIndex/I");
-    outputTree->Branch("fatJet1Tau4OverTau3", &fatJet1Tau4OverTau3, "fatJet1Tau4OverTau3/F");
-    outputTree->Branch("fatJet1Tau4OverTau2", &fatJet1Tau4OverTau2, "fatJet1Tau4OverTau2/F");
-    outputTree->Branch("fatJet1Tau4OverTau1", &fatJet1Tau4OverTau1, "fatJet1Tau4OverTau1/F");
-    outputTree->Branch("fatJet1Tau2OverTau1", &fatJet1Tau2OverTau1, "fatJet1Tau2OverTau1/F");
-    outputTree->Branch("fatJet1n2b1", &fatJet1n2b1, "fatJet1n2b1/F");
-    outputTree->Branch("fatJet1lsf3", &fatJet1lsf3, "fatJet1lsf3/F");
-    outputTree->Branch("fatJet1HasMuon", &fatJet1HasMuon, "fatJet1HasMuon/O");
-    outputTree->Branch("fatJet1HasElectron", &fatJet1HasElectron, "fatJet1HasElectron/O");
-    outputTree->Branch("fatJet1HasBJetCSVLoose", &fatJet1HasBJetCSVLoose, "fatJet1HasBJetCSVLoose/O");
-    outputTree->Branch("fatJet1HasBJetCSVMedium", &fatJet1HasBJetCSVMedium, "fatJet1HasBJetCSVMedium/O");
-    outputTree->Branch("fatJet1HasBJetCSVTight", &fatJet1HasBJetCSVTight, "fatJet1HasBJetCSVTight/O");
-    outputTree->Branch("fatJet1OppositeHemisphereHasBJet", &fatJet1OppositeHemisphereHasBJet, "fatJet1OppositeHemisphereHasBJet/O");
 
     outputTree->Branch("jet1Pt", &jet1Pt, "jet1Pt/F");
     outputTree->Branch("jet1Eta", &jet1Eta, "jet1Eta/F");
@@ -421,7 +410,6 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     outputTree->Branch("genHiggs2W2dau2Id", &genHiggs2W2dau2Id,"genHiggs2W2dau2Id/I");
 
     outputTree->Branch("NJets", &NJets, "NJets/I");
-    outputTree->Branch("MET", &MET, "MET/F");
     outputTree->Branch("fatJet1Pt", &fatJet1Pt, "fatJet1Pt/F");
     outputTree->Branch("fatJet1Eta", &fatJet1Eta, "fatJet1Eta/F");
     outputTree->Branch("fatJet1Phi", &fatJet1Phi, "fatJet1Phi/F");
@@ -449,23 +437,6 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     outputTree->Branch("fatJet1HasBJetCSVMedium", &fatJet1HasBJetCSVMedium, "fatJet1HasBJetCSVMedium/O");
     outputTree->Branch("fatJet1HasBJetCSVTight", &fatJet1HasBJetCSVTight, "fatJet1HasBJetCSVTight/O");
     outputTree->Branch("fatJet1OppositeHemisphereHasBJet", &fatJet1OppositeHemisphereHasBJet, "fatJet1OppositeHemisphereHasBJet/O");
-
-    outputTree->Branch("jet1Pt", &jet1Pt, "jet1Pt/F");
-    outputTree->Branch("jet1Eta", &jet1Eta, "jet1Eta/F");
-    outputTree->Branch("jet1Phi", &jet1Phi, "jet1Phi/F");
-    outputTree->Branch("jet1DeepJetBTag", &jet1DeepJetBTag, "jet1DeepJetBTag/F");
-    outputTree->Branch("jet2Pt", &jet2Pt, "jet2Pt/F");
-    outputTree->Branch("jet2Eta", &jet2Eta, "jet2Eta/F");
-    outputTree->Branch("jet2Phi", &jet2Phi, "jet2Phi/F");
-    outputTree->Branch("jet2DeepJetBTag", &jet2DeepJetBTag, "jet2DeepJetBTag/F");
-    outputTree->Branch("jet3Pt", &jet3Pt, "jet3Pt/F");
-    outputTree->Branch("jet3Eta", &jet3Eta, "jet3Eta/F");
-    outputTree->Branch("jet3Phi", &jet3Phi, "jet3Phi/F");
-    outputTree->Branch("jet3DeepJetBTag", &jet3DeepJetBTag, "jet3DeepJetBTag/F");
-    outputTree->Branch("jet4Pt", &jet4Pt, "jet4Pt/F");
-    outputTree->Branch("jet4Eta", &jet4Eta, "jet4Eta/F");
-    outputTree->Branch("jet4Phi", &jet4Phi, "jet4Phi/F");
-    outputTree->Branch("jet4DeepJetBTag", &jet4DeepJetBTag, "jet4DeepJetBTag/F");
 
     outputTree->Branch("fatJet2Pt", &fatJet2Pt, "fatJet2Pt/F");
     outputTree->Branch("fatJet2Eta", &fatJet2Eta, "fatJet2Eta/F");
@@ -529,6 +500,35 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     outputTree->Branch("deltaR_j1j2",    &deltaR_j1j2,   "deltaR_j1j2/F");
     outputTree->Branch("ptj2_over_ptj1",    &ptj2_over_ptj1,   "ptj2_over_ptj1/F");
     outputTree->Branch("mj2_over_mj1",    &mj2_over_mj1,   "mj2_over_mj1/F");
+
+    if(addAK15){
+      outputTree->Branch("ak15fatJet1Pt", &ak15fatJet1Pt, "ak15fatJet1Pt/F");
+      outputTree->Branch("ak15fatJet1Eta", &ak15fatJet1Eta, "ak15fatJet1Eta/F");
+      outputTree->Branch("ak15fatJet1Phi", &ak15fatJet1Phi, "ak15fatJet1Phi/F");
+      outputTree->Branch("ak15fatJet1Mass", &ak15fatJet1Mass, "ak15fatJet1Mass/F");
+      outputTree->Branch("ak15fatJet1MassSD", &ak15fatJet1MassSD, "ak15fatJet1MassSD/F");
+      outputTree->Branch("ak15fatJet1PNetMDXbb", &ak15fatJet1PNetMDXbb, "ak15fatJet1PNetMDXbb/F");
+      outputTree->Branch("ak15fatJet1PNetHqqqq", &ak15fatJet1PNetHqqqq, "ak15fatJet1PNetHqqqq/F");
+      outputTree->Branch("ak15fatJet1PNetQCDb", &ak15fatJet1PNetQCDb, "ak15fatJet1PNetQCDb/F");
+      outputTree->Branch("ak15fatJet1PNetQCDbb", &ak15fatJet1PNetQCDbb, "ak15fatJet1PNetQCDbb/F");
+      outputTree->Branch("ak15fatJet1PNetQCDc", &ak15fatJet1PNetQCDc, "ak15fatJet1PNetQCDc/F");
+      outputTree->Branch("ak15fatJet1PNetQCDcc", &ak15fatJet1PNetQCDcc, "ak15fatJet1PNetQCDcc/F");
+      outputTree->Branch("ak15fatJet1PNetQCDothers", &ak15fatJet1PNetQCDothers, "ak15fatJet1PNetQCDothers/F");
+
+      outputTree->Branch("ak15fatJet2Pt", &ak15fatJet2Pt, "ak15fatJet2Pt/F");
+      outputTree->Branch("ak15fatJet2Eta", &ak15fatJet2Eta, "ak15fatJet2Eta/F");
+      outputTree->Branch("ak15fatJet2Phi", &ak15fatJet2Phi, "ak15fatJet2Phi/F");
+      outputTree->Branch("ak15fatJet2Mass", &ak15fatJet2Mass, "ak15fatJet2Mass/F");
+      outputTree->Branch("ak15fatJet2MassSD", &ak15fatJet2MassSD, "ak15fatJet2MassSD/F");
+      outputTree->Branch("ak15fatJet2PNetMDXbb", &ak15fatJet2PNetMDXbb, "ak15fatJet2PNetMDXbb/F");
+      outputTree->Branch("ak15fatJet2PNetHqqqq", &ak15fatJet2PNetHqqqq,"ak15fatJet2PNetHqqqq/F");
+      outputTree->Branch("ak15fatJet2PNetQCDb", &ak15fatJet2PNetQCDb, "ak15fatJet2PNetQCDb/F");
+      outputTree->Branch("ak15fatJet2PNetQCDbb", &ak15fatJet2PNetQCDbb, "ak15fatJet2PNetQCDbb/F");
+      outputTree->Branch("ak15fatJet2PNetQCDc", &ak15fatJet2PNetQCDc, "ak15fatJet2PNetQCDc/F");
+      outputTree->Branch("ak15fatJet2PNetQCDcc", &ak15fatJet2PNetQCDcc, "ak15fatJet2PNetQCDcc/F");
+      outputTree->Branch("ak15fatJet2PNetQCDothers", &ak15fatJet2PNetQCDothers,"ak15fatJet2PNetQCDothers/F");
+    }
+
     outputTree->Branch("lep1Pt", &lep1Pt, "lep1Pt/F");
     outputTree->Branch("lep1Eta", &lep1Eta, "lep1Eta/F");
     outputTree->Branch("lep1Phi", &lep1Phi, "lep1Phi/F");
@@ -538,7 +538,6 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     outputTree->Branch("lep2Phi", &lep2Phi, "lep2Phi/F");
     outputTree->Branch("lep2Id", &lep2Id, "lep2Id/I");
     outputTree->Branch("nBTaggedJets", &nBTaggedJets, "nBTaggedJets/I");      
-      
     outputTree->Branch("pho1Pt", &pho1Pt, "pho1Pt/F");
     outputTree->Branch("pho1Eta", &pho1Eta, "pho1Eta/F");
     outputTree->Branch("pho1Phi", &pho1Phi, "pho1Phi/F");  
@@ -559,7 +558,6 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     outputTree->Branch("HLT_Mu55", &HLT_Mu55, "HLT_Mu55/O");
     outputTree->Branch("HLT_Photon175",                          &HLT_Photon175,                         "HLT_Photon175/O");
     
-    //PFHT800 and PFHT900 only exists in 2016 data
     outputTree->Branch("HLT_PFHT780",                                        &HLT_PFHT780,                                       "HLT_PFHT780/O");
     outputTree->Branch("HLT_PFHT890",                                        &HLT_PFHT890,                                       "HLT_PFHT890/O");
     outputTree->Branch("HLT_PFHT1050",                                        &HLT_PFHT1050,                                       "HLT_PFHT1050/O");
@@ -571,9 +569,6 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     outputTree->Branch("HLT_AK8PFHT800_TrimMass50",                           &HLT_AK8PFHT800_TrimMass50,                          "HLT_AK8PFHT800_TrimMass50/O");
     outputTree->Branch("HLT_AK8PFHT850_TrimMass50",                           &HLT_AK8PFHT850_TrimMass50,                          "HLT_AK8PFHT850_TrimMass50/O");
     outputTree->Branch("HLT_AK8PFHT900_TrimMass50",                           &HLT_AK8PFHT900_TrimMass50,                          "HLT_AK8PFHT900_TrimMass50/O");
-    // outputTree->Branch("HLT_AK8PFHT700_TrimR0p1PT0p03Mass50",                 &HLT_AK8PFHT700_TrimR0p1PT0p03Mass50,                "HLT_AK8PFHT700_TrimR0p1PT0p03Mass50/O");
-    // outputTree->Branch("HLT_PFHT650_WideJetMJJ950DEtaJJ1p5",                  &HLT_PFHT650_WideJetMJJ950DEtaJJ1p5,                 "HLT_PFHT650_WideJetMJJ950DEtaJJ1p5/O");
-    // outputTree->Branch("HLT_PFHT650_WideJetMJJ900DEtaJJ1p5",                  &HLT_PFHT650_WideJetMJJ900DEtaJJ1p5,                  "HLT_PFHT650_WideJetMJJ900DEtaJJ1p5/O");
     outputTree->Branch("HLT_PFJet450",                                        &HLT_PFJet450,                                       "HLT_PFJet450/O");
     outputTree->Branch("HLT_PFJet500",                                        &HLT_PFJet500,                                       "HLT_PFJet500/O");
     outputTree->Branch("HLT_PFJet550",                                        &HLT_PFJet550,                                       "HLT_PFJet550/O");
@@ -707,8 +702,6 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       fatJet1Phi = -99.0;
       fatJet1Mass = -99.0;
       fatJet1MassSD = -99.0;
-      //fatJet1DeepAK8H = -99.0;
-      //fatJet1DeepAK8H4qMD = -99.0;
       fatJet1DeepAK8_H = -99.0;
       fatJet1DeepAK8MD_H4qvsQCD = -99.0;
       fatJet1PNetXbb = -99;
@@ -736,8 +729,6 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       fatJet2Phi = -99.0;
       fatJet2Mass = -99.0;
       fatJet2MassSD = -99.0;
-      //fatJet2DeepAK8H = -99.0;
-      //fatJet2DeepAK8H4qMD = -99.0;
       fatJet2DeepAK8_H = -99.0;
       fatJet2DeepAK8MD_H4qvsQCD = -99.0;
       fatJet2PNetXbb = -99;
@@ -764,8 +755,6 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       fatJet3Phi = -99.0;
       fatJet3Mass = -99.0;
       fatJet3MassSD = -99.0;
-      //fatJet3DeepAK8H = -99.0;
-      //fatJet3DeepAK8H4qMD = -99.0;
       fatJet3DeepAK8_H = -99.0;
       fatJet3DeepAK8MD_H4qvsQCD = -99.0;
       fatJet3PNetXbb = -99;      
@@ -826,6 +815,35 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       jet4Phi = -99;
       jet4DeepJetBTag = -99;
       nBTaggedJets = 0;
+
+      if(addAK15){
+	ak15fatJet1Pt = -99.0;
+	ak15fatJet1Eta = -99.0;
+	ak15fatJet1Phi = -99.0;
+	ak15fatJet1Mass = -99.0;
+	ak15fatJet1MassSD = -99.0;
+	ak15fatJet1PNetMDXbb = -99.0;
+	ak15fatJet1PNetHqqqq = -99.0;
+	ak15fatJet1PNetQCDb = -99.0;
+	ak15fatJet1PNetQCDbb = -99.0;
+	ak15fatJet1PNetQCDc = -99.0;
+	ak15fatJet1PNetQCDcc = -99.0;
+	ak15fatJet1PNetQCDothers = -99.0;
+
+        ak15fatJet2Pt = -99.0;
+        ak15fatJet2Eta = -99.0;
+        ak15fatJet2Phi = -99.0;
+        ak15fatJet2Mass = -99.0;
+        ak15fatJet2MassSD = -99.0;
+        ak15fatJet2PNetMDXbb = -99.0;
+        ak15fatJet2PNetHqqqq = -99.0;
+        ak15fatJet2PNetQCDb = -99.0;
+        ak15fatJet2PNetQCDbb = -99.0;
+        ak15fatJet2PNetQCDc = -99.0;
+        ak15fatJet2PNetQCDcc = -99.0;
+        ak15fatJet2PNetQCDothers = -99.0;
+      }
+
 
       //------------------------------
       //----Event variables------------
@@ -938,8 +956,6 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 	      }
 	    }
 	  }
-	  //std::cout << " genWdecay " << genWdecay.size() << std::endl;
-	  //std::cout << " genWdauVector size " <<  genWdauVector.size() << std::endl;
 	  if(j==0){
 	    genHiggs1Pt = genHiggsVector[j].Pt();
 	    genHiggs1Eta = genHiggsVector[j].Eta();
@@ -1083,12 +1099,8 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       fatJet1Phi = FatJet_phi[fatJet1Index];
       fatJet1Mass = FatJet_mass[fatJet1Index];
       fatJet1MassSD = FatJet_msoftdrop[fatJet1Index];
-      //fatJet1DeepAK8H = FatJet_deepTagHqqqq[fatJet1Index];
-      //fatJet1DeepAK8H4qMD = FatJet_deepTagMDHqqqq[fatJet1Index];
       fatJet1DeepAK8_H = FatJet_deepTag_H[fatJet1Index];
       fatJet1DeepAK8MD_H4qvsQCD = FatJet_deepTagMD_H4qvsQCD[fatJet1Index];
-      // add also particleNet_H4qvsQCD
-      //        particleNet_H4qvsQCD = Var("bDiscriminator('pfParticleNetDiscriminatorsJetTags:H4qvsQCD')",float,doc="ParticleNet tagger H(->VV->qqqq) vs QCD discriminator",precision=10),
       fatJet1PNetXbb = FatJet_ParticleNetMD_probXbb[fatJet1Index]/(1.0 - FatJet_ParticleNetMD_probXcc[fatJet1Index] - FatJet_ParticleNetMD_probXqq[fatJet1Index]);
       fatJet1PNetXbb_alt = FatJet_particleNetMD_Xbb[fatJet1Index]/(1.0 - FatJet_particleNetMD_Xcc[fatJet1Index] - FatJet_particleNetMD_Xqq[fatJet1Index]);
       fatJet1PNetQCDb = FatJet_ParticleNetMD_probQCDb[fatJet1Index];
@@ -1183,8 +1195,6 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       fatJet2Phi = FatJet_phi[fatJet2Index];
       fatJet2Mass = FatJet_mass[fatJet2Index];
       fatJet2MassSD = FatJet_msoftdrop[fatJet2Index];
-      //fatJet2DeepAK8H = FatJet_deepTagHqqqq[fatJet2Index];
-      //fatJet2DeepAK8H4qMD = FatJet_deepTagMDHqqqq[fatJet2Index];
       fatJet2DeepAK8_H = FatJet_deepTag_H[fatJet2Index];
       fatJet2DeepAK8MD_H4qvsQCD = FatJet_deepTagMD_H4qvsQCD[fatJet2Index];
       fatJet2PNetXbb = FatJet_ParticleNetMD_probXbb[fatJet2Index]/(1.0 - FatJet_ParticleNetMD_probXcc[fatJet2Index] - FatJet_ParticleNetMD_probXqq[fatJet2Index]);
@@ -1259,8 +1269,6 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 	fatJet3Phi = FatJet_phi[fatJet3Index];
 	fatJet3Mass = FatJet_mass[fatJet3Index];
 	fatJet3MassSD = FatJet_msoftdrop[fatJet3Index];
-	//fatJet3DeepAK8H = FatJet_deepTagHqqqq[fatJet3Index];
-	//fatJet3DeepAK8H4qMD = FatJet_deepTagMDHqqqq[fatJet3Index];
 	fatJet3DeepAK8_H = FatJet_deepTag_H[fatJet3Index];
 	fatJet3DeepAK8MD_H4qvsQCD = FatJet_deepTagMD_H4qvsQCD[fatJet3Index];
 	fatJet3PNetXbb = FatJet_ParticleNetMD_probXbb[fatJet3Index]/(1.0 - FatJet_ParticleNetMD_probXcc[fatJet3Index] - FatJet_ParticleNetMD_probXqq[fatJet3Index]);
@@ -1339,7 +1347,54 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       deltaR_j1j2 = deltaR(fatJet1Eta, fatJet1Phi, fatJet2Eta, fatJet2Phi);
       ptj2_over_ptj1 = fatJet2Pt / fatJet1Pt;
       mj2_over_mj1 = fatJet2MassSD / fatJet1MassSD;             
+      
+      // AK15 info
+      vector<int> ak15selectedFatJetIndices;
+      for(unsigned int i = 0; i < nFatJetAK15; i++ ) {
+        if (FatJetAK15_pt[i] < 200) continue;
+        ak15selectedFatJetIndices.push_back(i);
+      }
+      int ak15fatJet1Index = -1;
+      int ak15fatJet2Index = -1;
+      for(unsigned int i = 0; i < ak15selectedFatJetIndices.size(); i++ ) {
+        if(i==0){
+          ak15fatJet1Index = ak15selectedFatJetIndices[i];
+        }
+        if(i==1){
+          ak15fatJet2Index = ak15selectedFatJetIndices[i];
+        }
+      }
 
+      if(addAK15){
+	if(ak15fatJet1Index>-1){
+	  ak15fatJet1Pt = FatJetAK15_pt[ak15fatJet1Index];
+	  ak15fatJet1Eta = FatJetAK15_eta[ak15fatJet1Index];
+	  ak15fatJet1Phi = FatJetAK15_phi[ak15fatJet1Index];
+	  ak15fatJet1Mass = FatJetAK15_mass[ak15fatJet1Index];
+	  ak15fatJet1MassSD = FatJetAK15_msoftdrop[ak15fatJet1Index];
+	  ak15fatJet1PNetMDXbb = FatJetAK15_ParticleNetMD_probXbb[ak15fatJet1Index]/(1-FatJetAK15_ParticleNetMD_probXcc[ak15fatJet1Index]-FatJetAK15_ParticleNetMD_probXqq[ak15fatJet1Index]);
+	  ak15fatJet1PNetHqqqq = FatJetAK15_ParticleNet_probHqqqq[ak15fatJet1Index];
+	  ak15fatJet1PNetQCDb = FatJetAK15_ParticleNet_probQCDb[ak15fatJet1Index];
+	  ak15fatJet1PNetQCDbb = FatJetAK15_ParticleNet_probQCDbb[ak15fatJet1Index];
+	  ak15fatJet1PNetQCDc = FatJetAK15_ParticleNet_probQCDc[ak15fatJet1Index];
+	  ak15fatJet1PNetQCDcc = FatJetAK15_ParticleNet_probQCDcc[ak15fatJet1Index];
+	  ak15fatJet1PNetQCDothers = FatJetAK15_ParticleNet_probQCDothers[ak15fatJet1Index];
+	}
+	if(ak15fatJet2Index>-1){
+	  ak15fatJet2Pt = FatJetAK15_pt[ak15fatJet2Index];
+          ak15fatJet2Eta = FatJetAK15_eta[ak15fatJet2Index];
+          ak15fatJet2Phi = FatJetAK15_phi[ak15fatJet2Index];
+          ak15fatJet2Mass = FatJetAK15_mass[ak15fatJet2Index];
+          ak15fatJet2MassSD = FatJetAK15_msoftdrop[ak15fatJet2Index];
+          ak15fatJet2PNetMDXbb = FatJetAK15_ParticleNetMD_probXbb[ak15fatJet2Index]/(1-FatJetAK15_ParticleNetMD_probXcc[ak15fatJet2Index]-FatJetAK15_ParticleNetMD_probXqq[ak15fatJet2Index]);
+          ak15fatJet2PNetHqqqq = FatJetAK15_ParticleNet_probHqqqq[ak15fatJet2Index];
+          ak15fatJet2PNetQCDb = FatJetAK15_ParticleNet_probQCDb[ak15fatJet2Index];
+          ak15fatJet2PNetQCDbb = FatJetAK15_ParticleNet_probQCDbb[ak15fatJet2Index];
+          ak15fatJet2PNetQCDc = FatJetAK15_ParticleNet_probQCDc[ak15fatJet2Index];
+          ak15fatJet2PNetQCDcc = FatJetAK15_ParticleNet_probQCDcc[ak15fatJet2Index];
+          ak15fatJet2PNetQCDothers = FatJetAK15_ParticleNet_probQCDothers[ak15fatJet2Index];
+	}
+      }
       //------------------------------------------------------
       //----------Find Leptons
       //------------------------------------------------------     

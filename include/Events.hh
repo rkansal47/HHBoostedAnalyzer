@@ -12,6 +12,7 @@
 #include <TChain.h>
 #include <TFile.h>
 
+#define NFATJETAK15 100
 #define NFATJET 100
 #define NSOFTACTIVITYJET 100
 #define NJET 500
@@ -119,6 +120,24 @@ public :
    float* SubJet_rawFactor = new float[NSUBJET];   //[nSubJet]
    int* SubJet_nBHadrons   = new int[NSUBJET];   //[nSubJet]
    int* SubJet_nCHadrons   = new int[NSUBJET];   //[nSubJet]
+   UInt_t  nFatJetAK15;
+   float* FatJetAK15_ParticleNetMD_probXbb = new float[NFATJETAK15];
+   float* FatJetAK15_ParticleNetMD_probXcc = new float[NFATJETAK15];
+   float* FatJetAK15_ParticleNetMD_probXqq = new float[NFATJETAK15];
+   float* FatJetAK15_ParticleNet_probHqqqq = new float[NFATJETAK15];
+   float* FatJetAK15_ParticleNet_probQCDb = new float[NFATJETAK15]; 
+   float* FatJetAK15_ParticleNet_probQCDbb = new float[NFATJETAK15];
+   float* FatJetAK15_ParticleNet_probQCDc = new float[NFATJETAK15];
+   float* FatJetAK15_ParticleNet_probQCDcc = new float[NFATJETAK15];
+   float* FatJetAK15_ParticleNet_probQCDothers = new float[NFATJETAK15];
+   float* FatJetAK15_btagCSVV2 = new float[NFATJETAK15];
+   float* FatJetAK15_eta = new float[NFATJETAK15];
+   float* FatJetAK15_mass = new float[NFATJETAK15];
+   float* FatJetAK15_msoftdrop = new float[NFATJETAK15];
+   float* FatJetAK15_phi = new float[NFATJETAK15];
+   float* FatJetAK15_pt = new float[NFATJETAK15];
+   float* FatJetAK15_rawFactor = new float[NFATJETAK15];
+   float* FatJetAK15_jetId = new float[NFATJETAK15];
    UInt_t          nFatJet;
    float* FatJet_particleNetMD_Xbb =  new float[NFATJET];
    float* FatJet_particleNetMD_Xcc =  new float[NFATJET];
@@ -184,10 +203,6 @@ public :
    float* FatJet_deepTagZbb = new float[NFATJET];   //[nFatJet]
    float* FatJet_deepTagZcc = new float[NFATJET];   //[nFatJet]
    float* FatJet_deepTagZqq = new float[NFATJET];   //[nFatJet]
-   float* FatJet_deepTagMD_WvsQCD = new float[NFATJET];   //[nFatJet]
-   float* FatJet_deepTagMD_ZvsQCD = new float[NFATJET];   //[nFatJet]
-   float* FatJet_deepTag_WvsQCD = new float[NFATJET];   //[nFatJet]
-   float* FatJet_deepTag_ZvsQCD = new float[NFATJET];   //[nFatJet]
    float* FatJet_eta = new float[NFATJET];   //[nFatJet]
    float* FatJet_lsf3 = new float[NFATJET];   //[nFatJet]
    float* FatJet_mass = new float[NFATJET];   //[nFatJet]
@@ -1687,6 +1702,26 @@ public :
    TBranch *b_AK15Puppi_subJetIdx1           ;   //!
    TBranch *b_AK15Puppi_subJetIdx2           ;   //!
    TBranch *b_AK15Puppi_nPFCand              ;   //!
+
+   TBranch *b_nFatJetAK15;
+   TBranch *b_FatJetAK15_ParticleNetMD_probXbb;
+   TBranch *b_FatJetAK15_ParticleNetMD_probXcc;
+   TBranch *b_FatJetAK15_ParticleNetMD_probXqq;
+   TBranch *b_FatJetAK15_ParticleNet_probHqqqq;
+   TBranch *b_FatJetAK15_ParticleNet_probQCDb;
+   TBranch *b_FatJetAK15_ParticleNet_probQCDbb;
+   TBranch *b_FatJetAK15_ParticleNet_probQCDc;
+   TBranch *b_FatJetAK15_ParticleNet_probQCDcc;
+   TBranch *b_FatJetAK15_ParticleNet_probQCDothers;
+   TBranch *b_FatJetAK15_btagCSVV2;
+   TBranch *b_FatJetAK15_eta;
+   TBranch *b_FatJetAK15_mass;
+   TBranch *b_FatJetAK15_msoftdrop;
+   TBranch *b_FatJetAK15_phi;
+   TBranch *b_FatJetAK15_pt;
+   TBranch *b_FatJetAK15_rawFactor;
+   TBranch *b_FatJetAK15_jetId;
+
    TBranch        *b_nSubJet;   //!
    TBranch        *b_SubJet_area;   //!
    TBranch        *b_SubJet_btagCSVV2;   //!
@@ -1710,10 +1745,6 @@ public :
    TBranch        *b_FatJet_ParticleNetMD_probXbb;   //!
    TBranch        *b_FatJet_ParticleNetMD_probXcc;   //!
    TBranch        *b_FatJet_ParticleNetMD_probXqq;   //!
-   TBranch        *b_FatJet_deepTagMD_WvsQCD;   //!
-   TBranch        *b_FatJet_deepTagMD_ZvsQCD;   //!
-   TBranch        *b_FatJet_deepTag_WvsQCD;   //!
-   TBranch        *b_FatJet_deepTag_ZvsQCD;   //!
    TBranch        *b_FatJet_LSmsoftdrop;   //!
    TBranch        *b_FatJet_LSn2b1;   //!
    TBranch        *b_FatJet_LSn3b1;   //!
@@ -3389,6 +3420,26 @@ void Events::Init(TTree *tree)
    fChain->SetBranchAddress("SubJet_rawFactor", SubJet_rawFactor, &b_SubJet_rawFactor);
    fChain->SetBranchAddress("SubJet_nBHadrons", SubJet_nBHadrons, &b_SubJet_nBHadrons);
    fChain->SetBranchAddress("SubJet_nCHadrons", SubJet_nCHadrons, &b_SubJet_nCHadrons);
+
+   fChain->SetBranchAddress("nFatJetAK15",    &nFatJetAK15, &b_nFatJetAK15);
+   fChain->SetBranchAddress("FatJetAK15_ParticleNetMD_probXbb", FatJetAK15_ParticleNetMD_probXbb, &b_FatJetAK15_ParticleNetMD_probXbb);
+   fChain->SetBranchAddress("FatJetAK15_ParticleNetMD_probXcc", FatJetAK15_ParticleNetMD_probXcc, &b_FatJetAK15_ParticleNetMD_probXcc);
+   fChain->SetBranchAddress("FatJetAK15_ParticleNetMD_probXqq", FatJetAK15_ParticleNetMD_probXqq, &b_FatJetAK15_ParticleNetMD_probXqq);
+   fChain->SetBranchAddress("FatJetAK15_ParticleNet_probHqqqq", FatJetAK15_ParticleNet_probHqqqq, &b_FatJetAK15_ParticleNet_probHqqqq);
+   fChain->SetBranchAddress("FatJetAK15_ParticleNet_probQCDb", FatJetAK15_ParticleNet_probQCDb, &b_FatJetAK15_ParticleNet_probQCDb);
+   fChain->SetBranchAddress("FatJetAK15_ParticleNet_probQCDbb", FatJetAK15_ParticleNet_probQCDbb, &b_FatJetAK15_ParticleNet_probQCDbb);
+   fChain->SetBranchAddress("FatJetAK15_ParticleNet_probQCDc", FatJetAK15_ParticleNet_probQCDc, &b_FatJetAK15_ParticleNet_probQCDc);
+   fChain->SetBranchAddress("FatJetAK15_ParticleNet_probQCDcc", FatJetAK15_ParticleNet_probQCDcc, &b_FatJetAK15_ParticleNet_probQCDcc);
+   fChain->SetBranchAddress("FatJetAK15_ParticleNet_probQCDothers", FatJetAK15_ParticleNet_probQCDothers, &b_FatJetAK15_ParticleNet_probQCDothers);
+   fChain->SetBranchAddress("FatJetAK15_btagCSVV2", FatJetAK15_btagCSVV2, &b_FatJetAK15_btagCSVV2);
+   fChain->SetBranchAddress("FatJetAK15_eta", FatJetAK15_eta, &b_FatJetAK15_eta);
+   fChain->SetBranchAddress("FatJetAK15_mass", FatJetAK15_mass, &b_FatJetAK15_mass);
+   fChain->SetBranchAddress("FatJetAK15_msoftdrop", FatJetAK15_msoftdrop, &b_FatJetAK15_msoftdrop);
+   fChain->SetBranchAddress("FatJetAK15_phi", FatJetAK15_phi, &b_FatJetAK15_phi);
+   fChain->SetBranchAddress("FatJetAK15_pt", FatJetAK15_pt, &b_FatJetAK15_pt);
+   fChain->SetBranchAddress("FatJetAK15_rawFactor", FatJetAK15_rawFactor, &b_FatJetAK15_rawFactor);
+   fChain->SetBranchAddress("FatJetAK15_jetId", FatJetAK15_jetId, &b_FatJetAK15_jetId);
+
    fChain->SetBranchAddress("nFatJet", &nFatJet, &b_nFatJet);
    fChain->SetBranchAddress("FatJet_particleNetMD_Xbb", FatJet_particleNetMD_Xbb, &b_FatJet_particleNetMD_Xbb);
    fChain->SetBranchAddress("FatJet_particleNetMD_Xcc", FatJet_particleNetMD_Xcc, &b_FatJet_particleNetMD_Xcc);
@@ -3422,8 +3473,6 @@ void Events::Init(TTree *tree)
    fChain->SetBranchAddress("FatJet_deepTag_QCD", FatJet_deepTag_QCD, &b_FatJet_deepTag_QCD);
    fChain->SetBranchAddress("FatJet_deepTag_QCDothers", FatJet_deepTag_QCDothers, &b_FatJet_deepTag_QCDothers);
    fChain->SetBranchAddress("FatJet_deepTag_TvsQCD", FatJet_deepTag_TvsQCD, &b_FatJet_deepTag_TvsQCD);
-   fChain->SetBranchAddress("FatJet_deepTag_WvsQCD", FatJet_deepTag_WvsQCD, &b_FatJet_deepTag_WvsQCD);
-   fChain->SetBranchAddress("FatJet_deepTag_ZvsQCD", FatJet_deepTag_ZvsQCD, &b_FatJet_deepTag_ZvsQCD);
    fChain->SetBranchAddress("FatJet_deepTagMD_H4qvsQCD", FatJet_deepTagMD_H4qvsQCD, &b_FatJet_deepTagMD_H4qvsQCD);
    fChain->SetBranchAddress("FatJet_deepTagMD_HbbvsQCD", FatJet_deepTagMD_HbbvsQCD, &b_FatJet_deepTagMD_HbbvsQCD);
    fChain->SetBranchAddress("FatJet_deepTagMD_TvsQCD", FatJet_deepTagMD_TvsQCD, &b_FatJet_deepTagMD_TvsQCD);
@@ -3453,8 +3502,6 @@ void Events::Init(TTree *tree)
    fChain->SetBranchAddress("FatJet_deepTagZbb", FatJet_deepTagZbb, &b_FatJet_deepTagZbb);
    fChain->SetBranchAddress("FatJet_deepTagZcc", FatJet_deepTagZcc, &b_FatJet_deepTagZcc);
    fChain->SetBranchAddress("FatJet_deepTagZqq", FatJet_deepTagZqq, &b_FatJet_deepTagZqq);
-   fChain->SetBranchAddress("FatJet_deepTagMD_WvsQCD", FatJet_deepTagMD_WvsQCD, &b_FatJet_deepTagMD_WvsQCD);
-   fChain->SetBranchAddress("FatJet_deepTagMD_ZvsQCD", FatJet_deepTagMD_ZvsQCD, &b_FatJet_deepTagMD_ZvsQCD);
    fChain->SetBranchAddress("FatJet_deepTag_WvsQCD", FatJet_deepTag_WvsQCD, &b_FatJet_deepTag_WvsQCD);
    fChain->SetBranchAddress("FatJet_deepTag_ZvsQCD", FatJet_deepTag_ZvsQCD, &b_FatJet_deepTag_ZvsQCD);
    fChain->SetBranchAddress("FatJet_eta", FatJet_eta, &b_FatJet_eta);
