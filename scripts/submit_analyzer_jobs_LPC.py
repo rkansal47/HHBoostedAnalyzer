@@ -10,7 +10,8 @@ from collections import OrderedDict
 
 queueType = "longlunch"
 option = 1
-label = "option1"
+#label = "option1"
+label = "option1_ak15"
 
 analysis = "HHToBBWWNtupler"
 outputfile = "HHToBBWWNtuple" + "_" + label
@@ -41,8 +42,10 @@ datasetList = OrderedDict()
 # datasetList['nano/v1/2017/ST_tW_antitop_5f_inclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8.list'] = [0, 2, "2017", "ST_tW_antitop_5f_inclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8"]
 # datasetList['nano/v1/2017/ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8.list'] = [0, 2, "2017", "ST_tW_top_5f_inclusiveDecays_TuneCP5_13TeV-powheg-pythia8"]
 # datasetList['nano/v1/2017/ST_tW_top_5f_inclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8.list'] = [0, 2, "2017", "ST_tW_top_5f_inclusiveDecays_TuneCP5_PSweights_13TeV-powheg-pythia8"]
-datasetList['nano/v1/2017/HHToBBVVToBBQQQQ_node_SM.list'] = [0, 2, "2017", "HHToBBVVToBBQQQQ_node_SM"]
-datasetList['nano/v1/2017/HHToVVVV_node_SM_Pt300.list'] = [0, 2, "2017", "HHToVVVV_node_SM_Pt300"]
+#datasetList['nano/v1/2017/HHToBBVVToBBQQQQ_node_SM.list'] = [0, 2, "2017", "HHToBBVVToBBQQQQ_node_SM"]
+#datasetList['nano/v1/2017/HHToVVVV_node_SM_Pt300.list'] = [0, 2, "2017", "HHToVVVV_node_SM_Pt300"]
+datasetList['nano/v1/2017/HHToBBVVToBBQQQQ_cHHH1.list'] = [0, 2, "2017", "GluGluToHHTo4B_node_cHHH1_TuneCP5_PSWeights_13TeV-powheg-pythia8"]
+datasetList['nano/v1/2017/GluGluToHHTo4V_node_cHHH1_TuneCP5_PSWeights_13TeV-powheg-pythia8.list'] = [0, 2, "2017", "GluGluToHHTo4B_node_cHHH1_TuneCP5_PSWeights_13TeV-powheg-pythia8"]
 #datasetList['nano/v1/2017/GluGluHToBB_M-125_13TeV_powheg_MINLO_NNLOPS_pythia8.list'] = [0, 2, "2017", "GluGluHToBB_M-125_13TeV_powheg_MINLO_NNLOPS_pythia8"]
 #datasetList['nano/v1/2017/GluGluToHHTo4B_node_SM.list'] = [0, 2, "2017", "GluGluToHHTo4B_node_SM"]
 # datasetList['nano/v1/2017/GluGluToHHTo4B_node_cHHH1_TuneCP5_PSWeights_13TeV-powheg-pythia8.list'] = [0, 2, "2017", "GluGluToHHTo4B_node_cHHH1_TuneCP5_PSWeights_13TeV-powheg-pythia8"]
