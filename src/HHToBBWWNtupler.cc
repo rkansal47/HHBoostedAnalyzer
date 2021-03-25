@@ -96,6 +96,10 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     float genHiggs2W2Eta = -1;
     float genHiggs2W2Phi = -1;
     float genHiggs2W2M = -1;
+    int genHiggs1W1Id = -1;
+    int genHiggs1W2Id = -1;
+    int genHiggs2W1Id = -1;
+    int genHiggs2W2Id = -1;
     int genHiggs2W2Decay = -1;
 
     float genHiggs1b1Pt = -1;
@@ -360,6 +364,11 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     outputTree->Branch("genHiggs2W2Eta", &genHiggs2W2Eta, "genHiggs2W2Eta/F");
     outputTree->Branch("genHiggs2W2Phi", &genHiggs2W2Phi, "genHiggs2W2Phi/F");
     outputTree->Branch("genHiggs2W2M", &genHiggs2W2M, "genHiggs2W2M/F");
+    outputTree->Branch("genHiggs1W1Id", &genHiggs1W1Id, "genHiggs1W1Id/I");
+    outputTree->Branch("genHiggs1W2Id", &genHiggs1W2Id,"genHiggs1W2Id/I");
+    outputTree->Branch("genHiggs2W1Id", &genHiggs2W1Id,"genHiggs2W1Id/I");
+    outputTree->Branch("genHiggs2W2Id", &genHiggs2W2Id,"genHiggs2W2Id/I");
+
     outputTree->Branch("genHiggs2W2Decay", &genHiggs2W2Decay, "genHiggs2W2Decay/I");
 
     outputTree->Branch("genHiggs1b1Pt", &genHiggs1b1Pt, "genHiggs1b1Pt/F");
@@ -859,7 +868,7 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 	int current_mIndex = -1;
 	std::vector< int > genHiggsIndex;
 	for(int i = 0; i < nGenPart; i++) {
-	  if( (abs(GenPart_pdgId[i]) == 24 || abs(GenPart_pdgId[i]) == 5)  && GenPart_pdgId[GenPart_genPartIdxMother[i]] == 25 && current_mIndex != GenPart_genPartIdxMother[i] ) {
+	  if( (abs(GenPart_pdgId[i]) == 24 || abs(GenPart_pdgId[i]) == 23 || abs(GenPart_pdgId[i]) == 5)  && GenPart_pdgId[GenPart_genPartIdxMother[i]] == 25 && current_mIndex != GenPart_genPartIdxMother[i] ) {
 	    //std::cout << GenPart_genPartIdxMother[i] << std::endl;
 	    // std::cout << "mother: " << GenPart_pdgId[GenPart_genPartIdxMother[i]]
 	    // << " PT: " << GenPart_pt[GenPart_genPartIdxMother[i]]
@@ -875,7 +884,7 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 	  // save leading gen lepton from W decay or tau decay
           if ( (abs(GenPart_pdgId[i]) == 11 || abs(GenPart_pdgId[i]) == 13)
                && GenPart_pt[i] > 10
-               && (abs(GenPart_pdgId[GenPart_genPartIdxMother[i]]) == 24 || abs(GenPart_pdgId[GenPart_genPartIdxMother[i]]) == 15)
+               && (abs(GenPart_pdgId[GenPart_genPartIdxMother[i]]) == 24 || abs(GenPart_pdgId[GenPart_genPartIdxMother[i]]) == 23 || abs(GenPart_pdgId[GenPart_genPartIdxMother[i]]) == 15)
                && GenPart_pt[i] > genLeptonPt
                ) {
             genLeptonId = GenPart_pdgId[i];
@@ -888,18 +897,19 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 
 	for(int j = 0; j < genHiggsIndex.size(); j++) {
 	  std::vector< TLorentzVector > genWVector, genbVector;
-	  std::vector< int > genWIndex;
+	  std::vector< int > genWIndex, genWid;
 	  for(int i = 0; i < nGenPart; i++) {
 	    if( abs(GenPart_pdgId[i]) == 5 && GenPart_genPartIdxMother[i] == genHiggsIndex[j] ) {
 	      TLorentzVector b;
 	      b.SetPtEtaPhiM( GenPart_pt[i], GenPart_eta[i], GenPart_phi[i], GenPart_mass[i]);
 	      genbVector.push_back(b);
 	    }
-	    if( abs(GenPart_pdgId[i]) == 24 && GenPart_genPartIdxMother[i] == genHiggsIndex[j] && GenPart_status[i]==22) {
+	    if( (abs(GenPart_pdgId[i]) == 24 || abs(GenPart_pdgId[i]) == 23) && GenPart_genPartIdxMother[i] == genHiggsIndex[j] && GenPart_status[i]==22) {
 	      TLorentzVector w;
 	      w.SetPtEtaPhiM( GenPart_pt[i], GenPart_eta[i], GenPart_phi[i], GenPart_mass[i]);
 	      genWVector.push_back(w);
 	      genWIndex.push_back(i);
+	      genWid.push_back(GenPart_pdgId[i]);
 	    }
 	  }
 
@@ -907,8 +917,9 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
           for(int k = 0; k < genWIndex.size(); k++) {
 	    for(int i = 0; i < nGenPart; i++) {
 	      if(GenPart_genPartIdxMother[i] == genWIndex[k]){
-		if(abs(GenPart_pdgId[i]) == 24){
+		if(abs(GenPart_pdgId[i]) == 24 || abs(GenPart_pdgId[i]) ==  23){
 		  genWIndex.at(k) = i;
+		  genWid.at(k) = GenPart_pdgId[i];
 		}
 	      }
 	    }
@@ -923,7 +934,7 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 	    bool found=true;
 	    for(int i = 0; i < nGenPart; i++) {
 	      // codes to label W decay
-	      // 1: Wquarks, 2: Wenu, 3: Wmnu, 4: Wtaunu
+	      // 1: Wquarks, 2: Wenu, 3: Wmnu, 4: Wtaunu, 5: gluons? 
 	      if(GenPart_genPartIdxMother[i] == genWIndex[k]){
 		if(abs(GenPart_pdgId[i]) <= 5) wdecay=1;
 		if(abs(GenPart_pdgId[i]) == 11 || abs(GenPart_pdgId[i]) == 12) wdecay=2; 
@@ -958,6 +969,7 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 	      genHiggs1W1Eta = genWVector[0].Eta();
 	      genHiggs1W1Phi = genWVector[0].Phi();
               genHiggs1W1M = genWVector[0].M();
+	      genHiggs1W1Id = genWid[0];
 	      if(genWdecay.size()>1){
 		genHiggs1W1Decay = genWdecay[0];
 		genHiggs1W2Decay = genWdecay[1];
@@ -966,6 +978,7 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 	      genHiggs1W2Eta = genWVector[1].Eta();
 	      genHiggs1W2Phi = genWVector[1].Phi();
               genHiggs1W2M = genWVector[1].M();
+              genHiggs1W2Id = genWid[1];
 	      if(genWdauVector.size()>3){
 		genHiggs1W1dau1Pt = genWdauVector[0].Pt();
 		genHiggs1W1dau1Eta = genWdauVector[0].Eta();
@@ -1003,12 +1016,16 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
               genHiggs2W1Eta = genWVector[0].Eta();
               genHiggs2W1Phi = genWVector[0].Phi();
               genHiggs2W1M = genWVector[0].M();
-              genHiggs2W1Decay = genWdecay[0];
+              genHiggs2W1Id = genWid[0];
+              if(genWdecay.size()>1){
+		genHiggs2W1Decay = genWdecay[0];
+		genHiggs2W2Decay = genWdecay[1];
+	      }
               genHiggs2W2Pt = genWVector[1].Pt();
               genHiggs2W2Eta = genWVector[1].Eta();
               genHiggs2W2Phi = genWVector[1].Phi();
               genHiggs2W2M = genWVector[1].M();
-              genHiggs2W2Decay = genWdecay[1];
+              genHiggs2W2Id = genWid[0];
               if(genWdauVector.size()>3){
                 genHiggs2W1dau1Pt = genWdauVector[0].Pt();
                 genHiggs2W1dau1Eta = genWdauVector[0].Eta();
