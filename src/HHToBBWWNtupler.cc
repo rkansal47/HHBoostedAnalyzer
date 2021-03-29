@@ -1559,8 +1559,9 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
             (!addAK15 && fatJet1Pt > 250 && fatJet2Pt > 250 && fatJet1MassSD > 20 && fatJet2MassSD > 20) ||
             (addAK15 && ak15fatJet1Pt > 250 && ak15fatJet2Pt > 250 && ak15fatJet1MassSD > 20 && ak15fatJet2MassSD > 20)
       	  )
+        )
       {
-      	 
+
 
       	//****************************************************
       	//Compute pileupWeight
