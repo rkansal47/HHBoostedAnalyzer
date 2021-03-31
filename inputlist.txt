@@ -1,5 +1,5 @@
-HHToBBVVToBBQQQQ_node_SM /eos/uscms/store/user/rkansal/analyzer/HHToBBWWNtupler/option1_ak15/nano/v2_ak15/2017/HHToBBVVToBBQQQQ_node_SM.root
-HHToVVVV_node_SM_Pt300 /eos/uscms/store/user/rkansal/analyzer/HHToBBWWNtupler/option1_ak15/nano/v2_ak15/2017/HHToVVVV_node_SM_Pt300.root
+HHToVVVV_node_SM_Pt300 /eos/uscms/store/user/rkansal/analyzer/HHToBBWWNtupler/option1_ak15/nano/v2_ak15/2017/GluGluToHHTo4V_node_cHHH1_TuneCP5_PSWeights_13TeV-powheg-pythia8.root
+HHToBBVVToBBQQQQ_node_SM /eos/uscms/store/user/rkansal/analyzer/HHToBBWWNtupler/option1_ak15/nano/v2_ak15/2017/HHToBBVVToBBQQQQ_cHHH1.root
 QCD_HT1000to1500_TuneCUETP8M1_13TeV-madgraphMLM-pythia8 /eos/uscms/store/user/rkansal/analyzer/HHToBBWWNtupler/option1_ak15/nano/v2_ak15/2017/QCD_HT1000to1500_TuneCP5_13TeV-madgraph-pythia8.root
 QCD_HT1500to2000_TuneCUETP8M1_13TeV-madgraphMLM-pythia8 /eos/uscms/store/user/rkansal/analyzer/HHToBBWWNtupler/option1_ak15/nano/v2_ak15/2017/QCD_HT1500to2000_TuneCP5_13TeV-madgraph-pythia8.root
 QCD_HT2000toInf_TuneCUETP8M1_13TeV-madgraphMLM-pythia8 /eos/uscms/store/user/rkansal/analyzer/HHToBBWWNtupler/option1_ak15/nano/v2_ak15/2017/QCD_HT2000toInf_TuneCP5_13TeV-madgraph-pythia8.root
