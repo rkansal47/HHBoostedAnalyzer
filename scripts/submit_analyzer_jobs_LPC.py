@@ -11,7 +11,7 @@ from collections import OrderedDict
 queueType = "longlunch"
 option = 1
 #label = "option1"
-label = "option1_ak15"
+label = "option1_ak15_ak8_cut"
 
 analysis = "HHToBBWWNtupler"
 outputfile = "HHToBBWWNtuple" + "_" + label
@@ -23,7 +23,7 @@ outputDirectoryBase = "/store/user/rkansal/analyzer/"+analysis+"/"+label+"/"
 datasetList = OrderedDict()
 
 #2017  hqu ntuples
-datasetList['nano/v2_ak15/2017/QCD_HT1000to1500_TuneCP5_13TeV-madgraph-pythia8.list'] = [0, 2, "2017", "QCD_HT1000to1500_TuneCP5_13TeV-madgraph-pythia8"] 
+datasetList['nano/v2_ak15/2017/QCD_HT1000to1500_TuneCP5_13TeV-madgraph-pythia8.list'] = [0, 2, "2017", "QCD_HT1000to1500_TuneCP5_13TeV-madgraph-pythia8"]
 datasetList['nano/v2_ak15/2017/QCD_HT1500to2000_TuneCP5_13TeV-madgraph-pythia8.list'] = [0, 2, "2017", "QCD_HT1500to2000_TuneCP5_13TeV-madgraph-pythia8"]
 datasetList['nano/v2_ak15/2017/QCD_HT2000toInf_TuneCP5_13TeV-madgraph-pythia8.list'] = [0, 2, "2017", "QCD_HT2000toInf_TuneCP5_13TeV-madgraph-pythia8"]
 datasetList['nano/v2_ak15/2017/QCD_HT200to300_TuneCP5_13TeV-madgraph-pythia8.list'] = [0, 2, "2017", "QCD_HT200to300_TuneCP5_13TeV-madgraph-pythia8"]
@@ -78,7 +78,7 @@ for listfile in datasetList.keys():
     #Job Splitting
     #####################################
     isData = "no"
-    if (datasetList[listfile][0] == 1): 
+    if (datasetList[listfile][0] == 1):
         isData = "yes"
     filesPerJob = datasetList[listfile][1]
     tmpJobFileCount = 0
@@ -87,7 +87,7 @@ for listfile in datasetList.keys():
     if os.path.exists(Analyzer_DIR+"/condor/analyzer_" + analysis + "_" + label + "/" + datasetName + "/" + "input_list_" + str(nJobs) + ".txt"):
         print "Warning: condor directory " + Analyzer_DIR + "/condor/analyzer_" + analysis + "_" + label + "/" + datasetName + " is not empty. Skipping."
         continue
-        
+
     #create condor directories
     os.system("mkdir -p " + Analyzer_DIR + "/condor/analyzer_" + analysis + "_" + label + "/" + datasetName )
     os.system("mkdir -p " + Analyzer_DIR + "/condor/analyzer_" + analysis + "_" + label + "/" + datasetName + "/log/")
@@ -96,19 +96,19 @@ for listfile in datasetList.keys():
 
     tmpOutputListFile = open( Analyzer_DIR + "/condor/analyzer_" + analysis + "_" + label + "/" + datasetName + "/" + "input_list_" + str(nJobs) + ".txt","w")
     for line in tmpListFile:
-                
+
         #open list file for new job
         if tmpJobFileCount >= filesPerJob:
             tmpOutputListFile.close()
             tmpJobFileCount = 0
-            nJobs = nJobs + 1           
+            nJobs = nJobs + 1
             tmpOutputListFile = open( Analyzer_DIR + "/condor/analyzer_" + analysis + "_" + label + "/" + datasetName + "/" + "input_list_" + str(nJobs) + ".txt","w")
-          
+
         #write input file into job list file
         tmpOutputListFile.write(line)
         tmpJobFileCount += 1
 
-    tmpOutputListFile.close()    
+    tmpOutputListFile.close()
     os.system("cd " + Analyzer_DIR + "/condor/analyzer_" + analysis + "_" + label + "/" + datasetName + "/; tar czf input_list.tgz input_list_*.txt")
 
     #####################################
