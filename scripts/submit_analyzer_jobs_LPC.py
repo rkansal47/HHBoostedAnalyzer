@@ -49,11 +49,11 @@ datasetList['nano/v2_ak15/2017/GluGluToHHTo4V_node_cHHH1_TuneCP5_PSWeights_13TeV
 #datasetList['nano/v2_ak15/2017/GluGluHToBB_M-125_13TeV_powheg_MINLO_NNLOPS_pythia8.list'] = [0, 2, "2017", "GluGluHToBB_M-125_13TeV_powheg_MINLO_NNLOPS_pythia8"]
 #datasetList['nano/v2_ak15/2017/GluGluToHHTo4B_node_SM.list'] = [0, 2, "2017", "GluGluToHHTo4B_node_SM"]
 # datasetList['nano/v2_ak15/2017/GluGluToHHTo4B_node_cHHH1_TuneCP5_PSWeights_13TeV-powheg-pythia8.list'] = [0, 2, "2017", "GluGluToHHTo4B_node_cHHH1_TuneCP5_PSWeights_13TeV-powheg-pythia8"]
-# datasetList['nano/v2_ak15/2017/JetHT_2017B.list'] = [1, 1, "2017", ""]
-# datasetList['nano/v2_ak15/2017/JetHT_2017C.list'] = [1, 1, "2017", ""]
-# datasetList['nano/v2_ak15/2017/JetHT_2017D.list'] = [1, 1, "2017", ""]
-# datasetList['nano/v2_ak15/2017/JetHT_2017E.list'] = [1, 1, "2017", ""]
-# datasetList['nano/v2_ak15/2017/JetHT_2017F.list'] = [1, 1, "2017", ""]
+datasetList['nano/v2_ak15/2017/JetHT_2017B.list'] = [1, 1, "2017", ""]
+datasetList['nano/v2_ak15/2017/JetHT_2017C.list'] = [1, 1, "2017", ""]
+datasetList['nano/v2_ak15/2017/JetHT_2017D.list'] = [1, 1, "2017", ""]
+datasetList['nano/v2_ak15/2017/JetHT_2017E.list'] = [1, 1, "2017", ""]
+datasetList['nano/v2_ak15/2017/JetHT_2017F.list'] = [1, 1, "2017", ""]
 
 CMSSW_BASE_DIR = os.getenv('CMSSW_BASE')
 Analyzer_DIR = CMSSW_BASE_DIR+"/src/HHBoostedAnalyzer/"
