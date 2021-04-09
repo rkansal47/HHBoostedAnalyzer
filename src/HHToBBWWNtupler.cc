@@ -217,6 +217,7 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     float fatJet3DeepAK8MD_H4qvsQCD = -99;
     float fatJet3PNetXbb = -99;
     float fatJet3PNetXbb_alt = -99;
+    float fatJet3PNetHqqqq = -99;
     float fatJet3PNetQCDb = -99;
     float fatJet3PNetQCDbb = -99;
     float fatJet3PNetQCDc = -99;
@@ -486,6 +487,7 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
     outputTree->Branch("fatJet3DeepAK8MD_H4qvsQCD", &fatJet3DeepAK8MD_H4qvsQCD,"fatJet3DeepAK8MD_H4qvsQCD/F");
     outputTree->Branch("fatJet3PNetXbb", &fatJet3PNetXbb, "fatJet3PNetXbb/F");
     outputTree->Branch("fatJet3PNetXbb_alt", &fatJet3PNetXbb_alt, "fatJet3PNetXbb_alt/F");
+    outputTree->Branch("fatJet3PNetHqqqq", &fatJet3PNetHqqqq, "fatJet3PNetHqqqq/F");
     outputTree->Branch("fatJet3PNetQCDb", &fatJet3PNetQCDb, "fatJet3PNetQCDb/F");
     outputTree->Branch("fatJet3PNetQCDbb", &fatJet3PNetQCDbb, "fatJet3PNetQCDbb/F");
     outputTree->Branch("fatJet3PNetQCDc", &fatJet3PNetQCDc, "fatJet3PNetQCDc/F");
@@ -774,6 +776,7 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       fatJet3DeepAK8MD_H4qvsQCD = -99.0;
       fatJet3PNetXbb = -99;
       fatJet3PNetXbb_alt = -99;
+      fatJet3PNetHqqqq = -99;
       fatJet3PNetQCDb = -99;
       fatJet3PNetQCDbb = -99;
       fatJet3PNetQCDc = -99;
