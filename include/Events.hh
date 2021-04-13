@@ -1738,6 +1738,7 @@ public :
    TBranch        *b_FatJet_particleNetMD_Xbb;
    TBranch        *b_FatJet_particleNetMD_Xcc;
    TBranch        *b_FatJet_particleNetMD_Xqq;
+   TBranch        *b_FatJet_particleNet_H4qvsQCD;
    TBranch        *b_FatJet_ParticleNetMD_probQCDb;   //!
    TBranch        *b_FatJet_ParticleNetMD_probQCDbb;   //!
    TBranch        *b_FatJet_ParticleNetMD_probQCDc;   //!
@@ -3445,6 +3446,7 @@ void Events::Init(TTree *tree)
    fChain->SetBranchAddress("FatJet_particleNetMD_Xbb", FatJet_particleNetMD_Xbb, &b_FatJet_particleNetMD_Xbb);
    fChain->SetBranchAddress("FatJet_particleNetMD_Xcc", FatJet_particleNetMD_Xcc, &b_FatJet_particleNetMD_Xcc);
    fChain->SetBranchAddress("FatJet_particleNetMD_Xqq", FatJet_particleNetMD_Xqq, &b_FatJet_particleNetMD_Xqq);
+   fChain->SetBranchAddress("FatJet_particleNet_H4qvsQCD", FatJet_particleNet_H4qvsQCD, &b_FatJet_particleNet_H4qvsQCD);
    fChain->SetBranchAddress("FatJet_ParticleNetMD_probQCDb", FatJet_ParticleNetMD_probQCDb, &b_FatJet_ParticleNetMD_probQCDb);
    fChain->SetBranchAddress("FatJet_ParticleNetMD_probQCDbb", FatJet_ParticleNetMD_probQCDbb, &b_FatJet_ParticleNetMD_probQCDbb);
    fChain->SetBranchAddress("FatJet_ParticleNetMD_probQCDc", FatJet_ParticleNetMD_probQCDc, &b_FatJet_ParticleNetMD_probQCDc);
