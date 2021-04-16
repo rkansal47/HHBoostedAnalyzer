@@ -625,6 +625,8 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       //fill normalization histogram
       weight = genWeight / fabs(genWeight);
       NEvents->SetBinContent( 1, NEvents->GetBinContent(1) + weight);
+    
+      cout << "resetting tree variables" << "\n";
 
       //reset tree variables
       genHiggs1Pt = -99.0;
@@ -791,6 +793,7 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       fatJet3HasBJetCSVLoose = 0;
       fatJet3HasBJetCSVMedium = 0;
       fatJet3HasBJetCSVTight = 0;
+      cout << "reset tree variables" << "\n";
 
       hh_pt = -99;
       hh_eta = -99;
@@ -867,6 +870,7 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       //----Event variables------------
       //------------------------------
       MET = MET_pt;
+      cout << "gen variables " << nGenPart << "\n";
 
 
       // Gen variables
@@ -877,6 +881,10 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 	int current_mIndex = -1;
 	std::vector< int > genHiggsIndex;
 	for(int i = 0; i < nGenPart; i++) {
+      	  cout << "check condition " << i << "\n";
+	  cout << "gen part pdg id " << GenPart_pdgId[i] << "\n";
+	  cout << "gen part mother idx " << GenPart_genPartIdxMother[i] << "\n";
+	  cout << "gen part mother id " << GenPart_pdgId[GenPart_genPartIdxMother[i]] << "\n";
 	  if( (abs(GenPart_pdgId[i]) == 24 || abs(GenPart_pdgId[i]) == 23 || abs(GenPart_pdgId[i]) == 5)  && GenPart_pdgId[GenPart_genPartIdxMother[i]] == 25 && current_mIndex != GenPart_genPartIdxMother[i] ) {
 	    //std::cout << GenPart_genPartIdxMother[i] << std::endl;
 	    // std::cout << "mother: " << GenPart_pdgId[GenPart_genPartIdxMother[i]]
@@ -889,6 +897,7 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 	    genHiggsIndex.push_back(GenPart_genPartIdxMother[i]);
 	    current_mIndex = GenPart_genPartIdxMother[i];
 	  }
+      	  cout << "post condition" << "\n";
 
 	  // save leading gen lepton from W decay or tau decay
           if ( (abs(GenPart_pdgId[i]) == 11 || abs(GenPart_pdgId[i]) == 13)
@@ -1066,6 +1075,7 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 	}
 
       }//end if !data
+      cout << "finding fat jet" << "\n";
 
       //------------------------------
       //-------find fatJet------------
@@ -1107,6 +1117,7 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
 	  Higgs1_match_idx = j;
 	}
       }
+      cout << "fat jet variables" << "\n";
       fatJet1Pt = FatJet_pt[fatJet1Index];
       fatJet1Eta = FatJet_eta[fatJet1Index];
       fatJet1Phi = FatJet_phi[fatJet1Index];
@@ -1116,7 +1127,9 @@ void HHToBBWWNtupler::Analyze(bool isData, int Option, string outputfilename, st
       fatJet1DeepAK8MD_H4qvsQCD = FatJet_deepTagMD_H4qvsQCD[fatJet1Index];
       fatJet1PNetXbb = FatJet_ParticleNetMD_probXbb[fatJet1Index]/(1.0 - FatJet_ParticleNetMD_probXcc[fatJet1Index] - FatJet_ParticleNetMD_probXqq[fatJet1Index]);
       fatJet1PNetXbb_alt = FatJet_particleNetMD_Xbb[fatJet1Index]/(1.0 - FatJet_particleNetMD_Xcc[fatJet1Index] - FatJet_particleNetMD_Xqq[fatJet1Index]);
+      cout << "filling pneth4q" << endl;
       fatJet1PNetHqqqq = FatJet_particleNet_H4qvsQCD[fatJet1Index];
+      cout << "filled pneth4q" << endl;
       fatJet1PNetQCDb = FatJet_ParticleNetMD_probQCDb[fatJet1Index];
       fatJet1PNetQCDbb = FatJet_ParticleNetMD_probQCDbb[fatJet1Index];
       fatJet1PNetQCDc = FatJet_ParticleNetMD_probQCDc[fatJet1Index];
